@@ -3,12 +3,8 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         ZStack {
-            Map1Wrapper() // Map1 as the primary content
+            Map1Wrapper() // Assuming Map1Wrapper is a map view component
 
-            VStack {
-                Spacer() // Pushes the content to the bottom
-                TabBarView() // Custom Tab Bar
-            }
         }
     }
 }

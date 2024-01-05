@@ -1,10 +1,3 @@
-//
-//  User.swift
-//  RealFrensIOS
-//
-//  Created by Purin Spitzer on 11/22/23.
-//
-
 import Foundation
 
 struct User: Identifiable, Codable {
@@ -15,4 +8,3 @@ struct User: Identifiable, Codable {
     var bio: String?
     let email: String
 }
-
