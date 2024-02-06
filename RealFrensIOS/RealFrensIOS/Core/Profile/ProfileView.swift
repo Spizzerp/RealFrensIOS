@@ -1,136 +1,161 @@
 import SwiftUI
 
 struct ProfileView: View {
+    // Mock data for demonstration
+    let mockImages = ["mock1", "mock2", "mock3", "mock4"]
+    let mockBadges = ["badge1", "badge2", "badge3", "badge4"]
+    
     var body: some View {
         ZStack {
-            // Set the entire background to black
             Color.black.edgesIgnoringSafeArea(.all)
-
-            // Apply gradient from top to center
             LinearGradient(gradient: Gradient(colors: [Color.purple, Color.clear]), startPoint: .bottom, endPoint: .center)
                 .edgesIgnoringSafeArea(.all)
-                .opacity(0.6)
-
-            // Profile content
+                .opacity(0.5)
+            
+            ScrollView(.vertical, showsIndicators: false) {
+                VStack {
+                    profileImageSection
+                    statIndicatorSection
+                    usernameDescriptionSection
+                    customDivider
+                    badgeRow
+                    // Divider between badges and images
+                    customDivider
+                    imageRow
+                }
+                .padding(.top, UIScreen.main.bounds.height * 0.02)
+            }
+            
+            // Positioned the hamburger menu button at the top
             VStack {
-                // Top Section
-                topSection
-                
-                // Divider
-                customDivider
-
-                // Middle Section - Scrollable Pins View
-                ScrollView(.vertical, showsIndicators: false) {
-                    VStack(alignment: .leading, spacing: 30) {
-                        ForEach(Pin.samplePins, id: \.title) { pin in
-                            pinRow(for: pin)
-                        }
-                    }
-                    .padding(.horizontal)
-                }
-                
-                
-                // Divider
-                customDivider
-                
-                Spacer(minLength: 70)
-
-            }
-        }
-    }
-    var topSection: some View {
-        VStack {
-            // Pic and stats
-            HStack {
-                Image("pfp1")
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 80, height: 80)
-                    .clipShape(Circle())
-                    .padding(.leading)
-
-                Spacer() // Spacer to push content towards center
-
-                // Frens, Pins, and Posts stats in their own HStack
-                HStack(spacing: 20) { // Adjust the spacing between stats
-                    StatView(count: "8", label: "Frens")
-                    StatView(count: "8", label: "Pins")
-                    StatView(count: "8", label: "Pics")
-                }
-
-                Spacer() // Spacer to balance the layout
-            }
-
-            // Name and bio
-            VStack(alignment: .leading, spacing: 4) {
-                Text("@BrokeBoiCapital")
-                    .font(.footnote)
-                    .fontWeight(.semibold)
-                    .foregroundColor(.white)
-                Text("Hello world, welcome to my first app")
-                    .font(.footnote)
-                    .foregroundColor(.white)
-            }
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .padding(.horizontal)
-
-            // Edit Profile button
-            Button { } label: {
-                Text("Edit Profile")
-                    .font(.subheadline)
-                    .fontWeight(.semibold)
-                    .frame(width: 360, height: 32)
-                    .background(Color.gray)
-                    .foregroundColor(.white)
-                    .cornerRadius(10)
-                    .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.white.opacity(0.25), lineWidth: 5))
+                hamburgerMenuButton
+                Spacer()
             }
         }
     }
     
+    // Profile image with circular overlay and shadow
+    var profileImageSection: some View {
+        Image("pfp2")
+            .resizable()
+            .scaledToFill()
+            .frame(width: 180, height: 180)
+            .clipShape(Circle())
+            .overlay(Circle().stroke(Color.purple.opacity(0.5), lineWidth: 1))
+            .shadow(color: Color.purple.opacity(0.8), radius: 20)
+            .padding(.top, 0)
+    }
+    
+    // Horizontal stack for statistics indicators
+    var statIndicatorSection: some View {
+        HStack(spacing: 35) {
+            StatView(count: "120", label: "Frens", countSize: .headline, labelSize: .title3)
+            StatView(count: "20", label: "Pins", countSize: .headline, labelSize: .title3)
+            StatView(count: "82", label: "Pics", countSize: .headline, labelSize: .title3)
+        }
+        .padding(.vertical, 20)
+    }
+    
+    // Username and description layout
+    var usernameDescriptionSection: some View {
+        VStack(alignment: .leading, spacing: 6) {
+            Text("@BrokeBoiCapital")
+                .font(.title3)
+                .fontWeight(.bold)
+                .foregroundColor(.purple)
+            Text("Hello world, welcome to my first app")
+                .font(.body)
+                .foregroundColor(.white)
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding(.horizontal)
+    }
+    
+    // Custom divider to separate sections
     var customDivider: some View {
         Rectangle()
-            .frame(height: 1)
+            .frame(height: 2)
             .foregroundColor(.white)
+            .opacity(0.5)
             .padding(.horizontal)
             .padding(.vertical, 10)
     }
-
-    func pinRow(for pin: Pin) -> some View {
+    
+    // Row of badges displayed above the images
+    var badgeRow: some View {
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack(spacing: 25) {
+                ForEach(mockBadges, id: \.self) { badgeName in
+                    Image(badgeName)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 50, height: 50)
+                        .clipShape(Circle())
+                        .shadow(radius: 3)
+                        .padding(.vertical, 5)
+                }
+            }
+            .padding(.horizontal)
+        }
+        .padding(.bottom, 0)
+    }
+    
+    // Row of images that can be scrolled horizontally
+    var imageRow: some View {
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack(spacing: 30) {
+                ForEach(mockImages, id: \.self) { imageName in
+                    Image(imageName)
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 150, height: 150)
+                        .clipShape(RoundedRectangle(cornerRadius: 10))
+                        .shadow(radius: 5)
+                        .padding(.vertical, 10)
+                }
+            }
+            .padding(.horizontal)
+        }
+    }
+    
+    // Hamburger menu button positioned at the top right
+    var hamburgerMenuButton: some View {
         HStack {
-            Text(pin.emoji)
-                .font(.largeTitle)
-            VStack(alignment: .leading) {
-                Text(pin.title)
-                    .font(.headline)
+            Spacer()
+            Button(action: {
+                // Action for opening the menu
+            }) {
+                Image(systemName: "line.horizontal.3")
+                    .imageScale(.large)
                     .foregroundColor(.white)
-                Text(pin.location)
-                    .font(.subheadline)
-                    .foregroundColor(.white)
+                    .padding()
             }
         }
-        .padding(.vertical, 5)
     }
 }
 
+// Helper view for displaying statistic indicators
 struct StatView: View {
-    var count: String
-    var label: String
+    let count: String
+    let label: String
+    var countSize: Font
+    var labelSize: Font
     
     var body: some View {
         VStack {
             Text(count)
-                .font(.subheadline)
-                .fontWeight(.semibold)
+                .font(countSize)
+                .fontWeight(.bold)
                 .foregroundColor(.white)
             Text(label)
-                .font(.footnote)
+                .font(labelSize)
+                .fontWeight(.semibold)
                 .foregroundColor(.white)
         }
-        .frame(width: 60)
     }
 }
 
+// Preview provider for SwiftUI canvas
 struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
         ProfileView()

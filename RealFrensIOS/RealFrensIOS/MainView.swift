@@ -27,7 +27,7 @@ struct MainView: View {
                     }
                 )
                 .padding()
-                .background(Color.clear) // Set the background to clear
+                .background(Color.clear)
             }
         }
     }
