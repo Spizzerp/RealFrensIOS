@@ -2,6 +2,11 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Inter-Bold.ttf</string>
+		<string>Inter.ttc</string>
+	</array>
 	<key>MBXAccessToken</key>
 	<string>pk.eyJ1Ijoic3BpenplcnAiLCJhIjoiY2xwdWprbW9tMHF3YjJrcXpmaG9wYnJ4dyJ9.L5g4AxpBzvV_aDnAeCCXfg</string>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
