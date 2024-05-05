@@ -1,13 +1,23 @@
 import SwiftUI
 
-// Badge data model
+// MARK: - Badge Data Model
 struct BadgeInfo {
     let title: String
     let description: String
     let dateAcquired: String
 }
 
+// MARK: - Album Data Model
+struct Album: Identifiable {
+    let id: Int
+    let title: String
+    let coverImage: String
+    let images: [String]
+}
+
+// MARK: - Profile View
 struct ProfileView: View {
+    // Mock data for images and badges
     let mockImages = ["mock1", "mock2", "mock3", "mock4"]
     let mockBadges = ["badge1", "badge2", "badge3", "badge4"]
     
@@ -19,101 +29,108 @@ struct ProfileView: View {
         "badge4": BadgeInfo(title: "Badge 4", description: "This is badge 4", dateAcquired: "04/04/2021")
     ]
     
+    // Sample data for albums
+    let albums = [
+        Album(id: 1, title: "Japan 2023", coverImage: "mock1", images: ["mock1", "mock2", "mock3"]),
+        Album(id: 2, title: "France 2024", coverImage: "mock2", images: ["mock2", "mock3", "mock4"]),
+        Album(id: 3, title: "Thailand 2022", coverImage: "mock3", images: ["mock3", "mock1", "mock2"]),
+        Album(id: 4, title: "New York 2023", coverImage: "mock4", images: ["mock4", "mock3", "mock2"]),
+        // Add more sample albums
+    ]
+    
+    // State variables for popup
     @State private var showingPopup = false
     @State private var selectedBadgeInfo = BadgeInfo(title: "", description: "", dateAcquired: "")
     
     var body: some View {
-        ZStack {
-            // Gradient background
-            Color.black.edgesIgnoringSafeArea(.all)
-            
-            // Gradient from bottom to center
-            LinearGradient(gradient: Gradient(colors: [Color.purple, Color.clear]), startPoint: .bottom, endPoint: .center)
-                .edgesIgnoringSafeArea(.all)
-                .opacity(0.5)
-            
-            // Gradient from top to center (New addition)
-            LinearGradient(gradient: Gradient(colors: [Color.purple, Color.clear]), startPoint: .top, endPoint: .center)
-                .edgesIgnoringSafeArea(.all)
-                .opacity(0.5)
+        NavigationView {
+            ZStack {
+                // Background gradients
+                Color.black.edgesIgnoringSafeArea(.all)
+                
+                LinearGradient(gradient: Gradient(colors: [Color.gray, Color.clear]), startPoint: .bottom, endPoint: .center)
+                    .edgesIgnoringSafeArea(.all)
+                    .opacity(0.5)
+                
+                LinearGradient(gradient: Gradient(colors: [Color.white, Color.clear]), startPoint: .top, endPoint: .center)
+                    .edgesIgnoringSafeArea(.all)
+                    .opacity(0.5)
 
-            // Main content
-            ScrollView(.vertical, showsIndicators: false) {
-                VStack {
-                    profileImageSection
-                    statIndicatorSection
-                    usernameDescriptionSection
-                    customDivider
-                    badgeRow
-                    customDivider // Divider between badges and images
-                    imageRow
-                }
-                .padding(.top, UIScreen.main.bounds.height * 0.02)
-            }
-
-            // Hamburger menu button - Positioned at the top
-            VStack {
-                HStack {
-                    Spacer()
-                    Menu {
-                        Button(action: {
-                            // Action for Settings
-                        }) {
-                            Label("Settings", systemImage: "gear")
-                        }
-                        Button(action: {
-                            // Action for QR Code
-                        }) {
-                            Label("QR Code", systemImage: "qrcode.viewfinder")
-                        }
-                        Button(action: {
-                            // Action for Insights
-                        }) {
-                            Label("Insights", systemImage: "chart.bar")
-                        }
-                    } label: {
-                        Image(systemName: "line.horizontal.3")
-                            .imageScale(.large)
-                            .foregroundColor(.white)
-                            .padding()
+                // Main content
+                ScrollView(.vertical, showsIndicators: false) {
+                    VStack {
+                        profileImageSection
+                        statIndicatorSection
+                        usernameDescriptionSection
+                        customDivider
+                        badgeRow
+                        customDivider
+                        imageRow
                     }
+                    .padding(.top, UIScreen.main.bounds.height * 0.02)
                 }
-                Spacer() // Pushes the hamburger menu to the top
-            }
 
-            // Popup for badge details
-            if showingPopup {
-                popupView
+                // Hamburger menu button
+                VStack {
+                    HStack {
+                        Spacer()
+                        Menu {
+                            Button(action: {}) {
+                                Label("Settings", systemImage: "gear")
+                            }
+                            Button(action: {}) {
+                                Label("QR Code", systemImage: "qrcode.viewfinder")
+                            }
+                            Button(action: {}) {
+                                Label("Insights", systemImage: "chart.bar")
+                            }
+                        } label: {
+                            Image(systemName: "line.horizontal.3")
+                                .imageScale(.large)
+                                .foregroundColor(.white)
+                                .padding()
+                        }
+                    }
+                    Spacer()
+                }
+
+                // Popup for badge details
+                if showingPopup {
+                    popupView
+                }
             }
         }
     }
     
+    // MARK: - Profile Image Section
     var profileImageSection: some View {
         Image("pfp2")
             .resizable()
             .scaledToFill()
             .frame(width: 180, height: 180)
             .clipShape(Circle())
-            .overlay(Circle().stroke(Color.purple.opacity(0.5), lineWidth: 1))
-            .shadow(color: Color.purple.opacity(0.8), radius: 20)
+            .overlay(Circle().stroke(Color.white.opacity(0.5), lineWidth: 1))
+            .shadow(color: Color.white.opacity(0.8), radius: 20)
             .padding(.top, 0)
     }
     
+    // MARK: - Stat Indicator Section
     var statIndicatorSection: some View {
         HStack(spacing: 35) {
-            StatView(count: "120", label: "Frens", countSize: .headline, labelSize: .title3)
-            StatView(count: "20", label: "Pins", countSize: .headline, labelSize: .title3)
-            StatView(count: "82", label: "Pics", countSize: .headline, labelSize: .title3)
+            StatView(count: "120", label: "Frens")
+            StatView(count: "20", label: "Pins")
+            StatView(count: "420", label: "Points")
         }
         .padding(.vertical, 25)
     }
     
+    // MARK: - Username and Description Section
     var usernameDescriptionSection: some View {
         VStack(alignment: .leading, spacing: 10) {
             Text("@BrokeBoiCapital")
                 .font(.title3)
                 .fontWeight(.bold)
-                .foregroundColor(.purple)
+                .foregroundColor(.blue)
             Text("Hello world, welcome to my first app")
                 .font(.body)
                 .foregroundColor(.white)
@@ -122,15 +139,17 @@ struct ProfileView: View {
         .padding(.horizontal)
     }
     
+    // MARK: - Custom Divider
     var customDivider: some View {
         Rectangle()
             .frame(height: 1)
             .foregroundColor(.white)
-            .opacity(0.5)
+            .opacity(0.35)
             .padding(.horizontal)
             .padding(.vertical, 10)
     }
     
+    // MARK: - Badge Row
     var badgeRow: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 25) {
@@ -138,13 +157,13 @@ struct ProfileView: View {
                     Image(badgeName)
                         .resizable()
                         .scaledToFit()
-                        .frame(width: 50, height: 50)
+                        .frame(width: 40, height: 40)
                         .clipShape(Circle())
                         .shadow(radius: 3)
                         .padding(.vertical, 5)
                         .onTapGesture {
-                            self.selectedBadgeInfo = self.badgeDetails[badgeName] ?? BadgeInfo(title: "Unknown", description: "No description", dateAcquired: "N/A")
-                            self.showingPopup = true
+                            selectedBadgeInfo = badgeDetails[badgeName] ?? BadgeInfo(title: "Unknown", description: "No description", dateAcquired: "N/A")
+                            showingPopup = true
                         }
                 }
             }
@@ -153,23 +172,27 @@ struct ProfileView: View {
         .padding(.bottom, 0)
     }
     
+    // MARK: - ALbum Cover Row
     var imageRow: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 30) {
-                ForEach(mockImages, id: \.self) { imageName in
-                    Image(imageName)
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 150, height: 150)
-                        .clipShape(RoundedRectangle(cornerRadius: 10))
-                        .shadow(radius: 5)
-                        .padding(.vertical, 10)
+                ForEach(albums) { album in
+                    NavigationLink(destination: AlbumView(album: album)) {
+                        Image(album.coverImage)
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 150, height: 150)
+                            .clipShape(RoundedRectangle(cornerRadius: 10))
+                            .shadow(radius: 5)
+                            .padding(.vertical, 10)
+                    }
                 }
             }
             .padding(.horizontal)
         }
     }
     
+    // MARK: - Badge Popup View
     var popupView: some View {
         ZStack {
             // Popup background and content
@@ -191,42 +214,42 @@ struct ProfileView: View {
             // Close button
             VStack {
                 HStack {
-                    Spacer() // Pushes the button to the right
+                    Spacer()
                     Button(action: {
-                        self.showingPopup = false
+                        showingPopup = false
                     }) {
                         Image(systemName: "xmark")
-                            .foregroundColor(.black) // Color of the X button
-                            .padding(20) // Size of the clickable area
+                            .foregroundColor(.black)
+                            .padding(20)
                     }
                 }
-                Spacer() // Pushes the content to the top
+                Spacer()
             }
-            .frame(width: 300, height: 200) // Ensures the button's frame matches the popup's frame
+            .frame(width: 300, height: 200)
         }
     }
 }
 
+// MARK: - Stat View Component
 struct StatView: View {
     let count: String
     let label: String
-    var countSize: Font
-    var labelSize: Font
     
     var body: some View {
         VStack {
             Text(count)
-                .font(countSize)
+                .font(.headline)
                 .fontWeight(.bold)
                 .foregroundColor(.white)
             Text(label)
-                .font(labelSize)
+                .font(.title3)
                 .fontWeight(.semibold)
                 .foregroundColor(.white)
         }
     }
 }
 
+// MARK: - Preview Provider
 struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
         ProfileView()

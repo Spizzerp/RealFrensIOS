@@ -9,9 +9,9 @@ struct LoginView: View {
                 Color.black.edgesIgnoringSafeArea(.all)
 
                 // Adjusted Gradient overlay
-                LinearGradient(gradient: Gradient(colors: [Color.purple, Color.black]), startPoint: .top, endPoint: .center)
+                LinearGradient(gradient: Gradient(colors: [Color.white, Color.black]), startPoint: .top, endPoint: .center)
                     .edgesIgnoringSafeArea(.all)
-                    .opacity(0.6) // Adjust opacity for blending effect
+                    .opacity(0.3) // Adjust opacity for blending effect
 
                 // Globe background image at the bottom
                 Image("GlobeWBalls")

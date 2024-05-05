@@ -169,6 +169,7 @@
 		FA924EBA2BAF6AE700674CA9 /* InterVariable-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA924E452BAF6AE700674CA9 /* InterVariable-Italic.ttf */; };
 		FA924EBB2BAF6AE700674CA9 /* InterVariable.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA924E462BAF6AE700674CA9 /* InterVariable.ttf */; };
 		FA924EBC2BAF6AE700674CA9 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = FA924E472BAF6AE700674CA9 /* LICENSE.txt */; };
+		FACB85422BD5BB4700C9F5E0 /* AlbumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB85412BD5BB4700C9F5E0 /* AlbumView.swift */; };
 		FAD302C32B0E01770032F966 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD302C22B0E01770032F966 /* User.swift */; };
 		FADF8D0F2BA38C15004D7488 /* Map2.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADF8D0E2BA38C15004D7488 /* Map2.swift */; };
 /* End PBXBuildFile section */
@@ -334,6 +335,7 @@
 		FA924E452BAF6AE700674CA9 /* InterVariable-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "InterVariable-Italic.ttf"; sourceTree = "<group>"; };
 		FA924E462BAF6AE700674CA9 /* InterVariable.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = InterVariable.ttf; sourceTree = "<group>"; };
 		FA924E472BAF6AE700674CA9 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
+		FACB85412BD5BB4700C9F5E0 /* AlbumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumView.swift; sourceTree = "<group>"; };
 		FAD302C22B0E01770032F966 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		FADF8D0E2BA38C15004D7488 /* Map2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Map2.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -521,6 +523,7 @@
 			isa = PBXGroup;
 			children = (
 				FA47E82B2B0478460013B67F /* ProfileView.swift */,
+				FACB85412BD5BB4700C9F5E0 /* AlbumView.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -530,8 +533,8 @@
 			children = (
 				FA47E7F52B046D530013B67F /* ContentView.swift */,
 				FA47E89B2B049D770013B67F /* Map1.swift */,
-				FA47E8A32B0889C60013B67F /* MapMarker.swift */,
 				FADF8D0E2BA38C15004D7488 /* Map2.swift */,
+				FA47E8A32B0889C60013B67F /* MapMarker.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -1015,6 +1018,7 @@
 				FA47E7F42B046D530013B67F /* RealFrensIOSApp.swift in Sources */,
 				FA47E8A22B0722F50013B67F /* TabBarView.swift in Sources */,
 				FA1FE5B52B4053F100AE2C00 /* CreatePassView.swift in Sources */,
+				FACB85422BD5BB4700C9F5E0 /* AlbumView.swift in Sources */,
 				FA1FE5BD2B429AB800AE2C00 /* Pins.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

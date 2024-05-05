@@ -13,21 +13,12 @@ class Map1: UIViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Define padding for top and bottom only, removing horizontal padding
-            let verticalPadding: CGFloat = 100
-            let newFrame = CGRect(
-                x: 0, // Start from the very left side of the view
-                y: view.safeAreaLayoutGuide.layoutFrame.minY + verticalPadding, // Apply vertical padding at the top
-                width: view.bounds.width, // Use the full width of the view
-                height: view.safeAreaLayoutGuide.layoutFrame.height - (verticalPadding * 2) // Apply vertical padding at the top and bottom
-            )
-
-        // Initialize the MapView with the adjusted frame
-        mapView = MapView(frame: newFrame)
+        // Initialize the MapView with the view's bounds
+        mapView = MapView(frame: view.bounds)
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
 
         // Set your custom style URL here
-        mapView.mapboxMap.loadStyle(StyleURI(rawValue: "mapbox://styles/spizzerp/cltg9fc3f00vm01oigpw177zy")!)
+        mapView.mapboxMap.loadStyle(StyleURI(rawValue: "mapbox://styles/spizzerp/clv5lbn0200jp01ocghqwc62q")!)
 
         pointAnnotationManager = mapView.annotations.makePointAnnotationManager()
 
@@ -49,7 +40,7 @@ class Map1: UIViewController, CLLocationManagerDelegate {
 
         // Apply the glowing border to the mapView's layer
         mapView.layer.masksToBounds = false
-        mapView.layer.shadowColor = UIColor.systemBlue.cgColor // Glowing border color
+        mapView.layer.shadowColor = UIColor.white.cgColor // Glowing border color
         mapView.layer.shadowRadius = 10 // Glowing border radius
         mapView.layer.shadowOpacity = 0.9 // Glowing border opacity
         mapView.layer.shadowOffset = CGSize.zero // Center the glow

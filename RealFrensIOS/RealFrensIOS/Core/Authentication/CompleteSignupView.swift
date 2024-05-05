@@ -9,7 +9,7 @@ struct CompleteSignupView: View {
         ZStack {
             Color.black.edgesIgnoringSafeArea(.all) // Set background to black
 
-            LinearGradient(gradient: Gradient(colors: [Color.purple, Color.clear]), startPoint: .bottom, endPoint: .center)
+            LinearGradient(gradient: Gradient(colors: [Color.white, Color.clear]), startPoint: .bottom, endPoint: .center)
                 .edgesIgnoringSafeArea(.all)
                 .opacity(0.6) // Adjust opacity for blending effect
 

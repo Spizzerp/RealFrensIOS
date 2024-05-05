@@ -12,21 +12,12 @@ class Map2: UIViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Adjust frame for MapView to match desired UI layout
-        let verticalPadding: CGFloat = 100
-        let newFrame = CGRect(
-            x: 0, // Utilize full width
-            y: view.safeAreaLayoutGuide.layoutFrame.minY + verticalPadding,
-            width: view.bounds.width,
-            height: view.safeAreaLayoutGuide.layoutFrame.height - (verticalPadding * 2)
-        )
-
-        // Initialize the MapView with the adjusted frame
-        mapView = MapView(frame: newFrame)
+        // Initialize the MapView with the view's bounds
+        mapView = MapView(frame: view.bounds)
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
 
         // Example: Load a different style for "Frens World"
-        mapView.mapboxMap.loadStyle(StyleURI(rawValue: "mapbox://styles/spizzerp/cltroyn0w01iu01oi5wfhdr2o")!)
+        mapView.mapboxMap.loadStyle(StyleURI(rawValue: "mapbox://styles/spizzerp/clv5lbn0200jp01ocghqwc62q")!)
 
         pointAnnotationManager = mapView.annotations.makePointAnnotationManager()
 
@@ -46,12 +37,12 @@ class Map2: UIViewController, CLLocationManagerDelegate {
         let cameraOptions = CameraOptions(center: CLLocationCoordinate2D(latitude: 0, longitude: 0), zoom: 0)
         mapView.mapboxMap.setCamera(to: cameraOptions)
 
-        // Apply a glowing border if desired
+        // Apply the glowing border to the mapView's layer
         mapView.layer.masksToBounds = false
-        mapView.layer.shadowColor = UIColor.systemPurple.cgColor // Adjust color for "Frens World"
-        mapView.layer.shadowRadius = 10
-        mapView.layer.shadowOpacity = 0.9
-        mapView.layer.shadowOffset = CGSize.zero
+        mapView.layer.shadowColor = UIColor.white.cgColor // Glowing border color
+        mapView.layer.shadowRadius = 10 // Glowing border radius
+        mapView.layer.shadowOpacity = 0.9 // Glowing border opacity
+        mapView.layer.shadowOffset = CGSize.zero // Center the glow
 
         view.addSubview(mapView)
 
