@@ -1,17 +1,15 @@
 {
   "images" : [
     {
-      "filename" : "TextLogo.png",
+      "filename" : "Tipicon.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "TextLogo 1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "TextLogo 2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

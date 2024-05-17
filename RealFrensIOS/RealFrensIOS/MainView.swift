@@ -2,7 +2,7 @@ import SwiftUI
 
 struct MainView: View {
     @State private var currentTab: Tab = .content
-
+    
     var body: some View {
         ZStack {
             // Switch between different content views
@@ -15,7 +15,8 @@ struct MainView: View {
             
             // Overlay the TabBarView at the bottom of the screen
             VStack {
-                Spacer()
+                Spacer() // This will push the tab bar to the bottom
+                
                 TabBarView(
                     onProfileSelected: {
                         print("Profile Selected")
@@ -26,12 +27,13 @@ struct MainView: View {
                         currentTab = .content
                     }
                 )
-                .padding()
+                .padding(.bottom, 20) // Remove the bottom padding
                 .background(Color.clear)
             }
+            .edgesIgnoringSafeArea(.bottom) // Extend the VStack to the bottom edge of the screen
         }
     }
-
+    
     enum Tab {
         case content, profile
     }

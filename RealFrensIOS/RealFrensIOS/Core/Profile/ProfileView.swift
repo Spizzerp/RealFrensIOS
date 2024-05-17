@@ -23,10 +23,10 @@ struct ProfileView: View {
     
     // Sample data for badge popups
     let badgeDetails = [
-        "badge1": BadgeInfo(title: "Badge 1", description: "This is badge 1", dateAcquired: "01/01/2021"),
-        "badge2": BadgeInfo(title: "Badge 2", description: "This is badge 2", dateAcquired: "02/02/2021"),
-        "badge3": BadgeInfo(title: "Badge 3", description: "This is badge 3", dateAcquired: "03/03/2021"),
-        "badge4": BadgeInfo(title: "Badge 4", description: "This is badge 4", dateAcquired: "04/04/2021")
+        "badge1": BadgeInfo(title: "Badge: Mountaineer", description: "Participated in Mountain DAO's Denver retreat.", dateAcquired: "01/01/2021"),
+        "badge2": BadgeInfo(title: "Badge: Solana After Dark", description: "Posted a picture at BreakPoint's afterparty.", dateAcquired: "02/02/2021"),
+        "badge3": BadgeInfo(title: "Badge: Giga Gamer", description: "Attended the Solana games conference.", dateAcquired: "03/03/2021"),
+        "badge4": BadgeInfo(title: "Badge: Backpacker", description: "Connected to RealFrens with a Backpack wallet.", dateAcquired: "04/04/2021")
     ]
     
     // Sample data for albums
@@ -119,7 +119,7 @@ struct ProfileView: View {
         HStack(spacing: 35) {
             StatView(count: "120", label: "Frens")
             StatView(count: "20", label: "Pins")
-            StatView(count: "420", label: "Points")
+            StatView(count: "420", label: "Level")
         }
         .padding(.vertical, 25)
     }
@@ -127,10 +127,31 @@ struct ProfileView: View {
     // MARK: - Username and Description Section
     var usernameDescriptionSection: some View {
         VStack(alignment: .leading, spacing: 10) {
-            Text("@BrokeBoiCapital")
-                .font(.title3)
-                .fontWeight(.bold)
-                .foregroundColor(.blue)
+            HStack(spacing: 10) {  // Adjust spacing here if needed
+                Text("@BrokeBoiCapital")
+                    .font(.title3)
+                    .fontWeight(.bold)
+                    .foregroundColor(.purple)
+                Button(action: {
+                    // Add the action you want to perform when the button is tapped
+                }) {
+                    HStack {
+                        Image("Tipicon") // Assuming the icon is added as "tip_icon" in your assets
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 16, height: 16)
+                            .foregroundColor(.white)
+                        Text("TIP")
+                            .font(.body)
+                            .fontWeight(.semibold)
+                            .foregroundColor(.white)
+                    }
+                    .padding(.vertical, 5)
+                    .padding(.horizontal, 10)
+                    .background(Color(hex: "9F85FF"))
+                    .cornerRadius(6)
+                }
+            }
             Text("Hello world, welcome to my first app")
                 .font(.body)
                 .foregroundColor(.white)
@@ -141,26 +162,24 @@ struct ProfileView: View {
     
     // MARK: - Custom Divider
     var customDivider: some View {
-        Rectangle()
-            .frame(height: 1)
-            .foregroundColor(.white)
-            .opacity(0.35)
+        Image("Divider")
+            .resizable()
+            .scaledToFit()
+            .frame(height: 15)
             .padding(.horizontal)
-            .padding(.vertical, 10)
+            .padding(.vertical, 1)
     }
     
     // MARK: - Badge Row
     var badgeRow: some View {
         ScrollView(.horizontal, showsIndicators: false) {
-            HStack(spacing: 25) {
+            HStack(spacing: 15) {
                 ForEach(mockBadges, id: \.self) { badgeName in
                     Image(badgeName)
                         .resizable()
                         .scaledToFit()
-                        .frame(width: 40, height: 40)
-                        .clipShape(Circle())
+                        .frame(width: 50, height: 50)
                         .shadow(radius: 3)
-                        .padding(.vertical, 5)
                         .onTapGesture {
                             selectedBadgeInfo = badgeDetails[badgeName] ?? BadgeInfo(title: "Unknown", description: "No description", dateAcquired: "N/A")
                             showingPopup = true
@@ -172,7 +191,7 @@ struct ProfileView: View {
         .padding(.bottom, 0)
     }
     
-    // MARK: - ALbum Cover Row
+    // MARK: - Album Cover Row
     var imageRow: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 30) {
@@ -184,7 +203,7 @@ struct ProfileView: View {
                             .frame(width: 150, height: 150)
                             .clipShape(RoundedRectangle(cornerRadius: 10))
                             .shadow(radius: 5)
-                            .padding(.vertical, 10)
+                            .padding(.vertical, 20)
                     }
                 }
             }

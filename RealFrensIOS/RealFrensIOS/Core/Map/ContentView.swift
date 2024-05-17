@@ -41,14 +41,20 @@ struct ContentView: View {
 
                 Spacer() // Add a spacer to create distance between the map wrapper and the button container
 
-                // Button container
-                buttonContainerView()
-
                 Spacer() // Add a spacer to push the future functionalities area down
 
                 // Future functionalities area
                 futureFunctionalitiesView()
             } // End of Main VStack
+
+            // New layer at the bottom
+            VStack {
+                Spacer()
+                newLayerView()
+            }
+
+            // Button container should be at the very front
+            buttonContainerView()
         }
     }
 
@@ -175,7 +181,8 @@ struct ContentView: View {
                 .frame(width: 280, height: 60) // Adjust the width and height of the button container
             }
         }
-        .padding(.top, 50) // Add padding to create space between the map wrapper and the button container
+        .padding(.top, 230) // Add padding to create space between the map wrapper and the button container
+        .zIndex(1) // Ensure the button container is visible above the new layer
     }
 
     // MARK: - Map Button / Selection
@@ -195,6 +202,33 @@ struct ContentView: View {
             }
             .frame(width: 140, height: 50)
         }
+        .zIndex(1) // Ensure the button container is visible above the new layer
+    }
+    
+    // MARK: - New Layer View
+    @ViewBuilder
+    func newLayerView() -> some View {
+        Rectangle()
+            .foregroundColor(.clear)
+            .frame(width: 393, height: 500)
+            .background(
+                LinearGradient(
+                    stops: [
+                        Gradient.Stop(color: Color(red: 0.24, green: 0.24, blue: 0.24), location: 0.00),
+                        Gradient.Stop(color: Color(red: 0.12, green: 0.12, blue: 0.12), location: 0.85),
+                    ],
+                    startPoint: UnitPoint(x: 0.5, y: -0.01),
+                    endPoint: UnitPoint(x: 0.5, y: 1)
+                )
+            )
+            .cornerRadius(54)
+            .shadow(color: .black.opacity(0.35), radius: 50.15, x: 0, y: -21)
+            .overlay(
+                RoundedRectangle(cornerRadius: 54)
+                    .inset(by: 0.5)
+                    .stroke(.black, lineWidth: 0.5)
+            )
+            .offset(y: 171.5) // Adjust the offset to position the layer at the bottom
     }
 
     // MARK: - Future Functionalities View
