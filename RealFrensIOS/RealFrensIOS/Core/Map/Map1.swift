@@ -3,102 +3,102 @@ import SwiftUI
 import MapboxMaps
 import CoreLocation
 
+// MARK: - Map1 Class
+
 class Map1: UIViewController, CLLocationManagerDelegate {
+    // MARK: - Properties
     var mapView: MapView!
     var pointAnnotationManager: PointAnnotationManager?
     var locationManager = CLLocationManager()
     var selectedAnnotation: PointAnnotation?
-    var annotationsDictionary: [String: PointAnnotation] = [:]
+    var annotationsDictionary: [String: (annotation: PointAnnotation, album: Album)] = [:]
+
+    // MARK: - Lifecycle Methods
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Initialize the MapView with the view's bounds
         mapView = MapView(frame: view.bounds)
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
 
-        // Set your custom style URL here
         mapView.mapboxMap.loadStyle(StyleURI(rawValue: "mapbox://styles/spizzerp/clv5lbn0200jp01ocghqwc62q")!)
 
         pointAnnotationManager = mapView.annotations.makePointAnnotationManager()
 
-        // CLLocationManager setup remains the same
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
 
-        // Hide default Mapbox UI elements
         mapView.ornaments.scaleBarView.isHidden = true
         mapView.ornaments.logoView.isHidden = true
         mapView.ornaments.attributionButton.isHidden = true
         mapView.ornaments.compassView.isHidden = true
 
-        // Initial camera setting
         let cameraOptions = CameraOptions(center: CLLocationCoordinate2D(latitude: 0, longitude: 0), zoom: 0)
         mapView.mapboxMap.setCamera(to: cameraOptions)
 
-        // Apply the glowing border to the mapView's layer
-        mapView.layer.masksToBounds = false
-        mapView.layer.shadowColor = UIColor.white.cgColor // Glowing border color
-        mapView.layer.shadowRadius = 10 // Glowing border radius
-        mapView.layer.shadowOpacity = 0.9 // Glowing border opacity
-        mapView.layer.shadowOffset = CGSize.zero // Center the glow
-
         view.addSubview(mapView)
 
-        // Observers and gesture recognizers setup
         NotificationCenter.default.addObserver(self, selector: #selector(addPinAtUserLocation), name: .addPin, object: nil)
-        setupPinGestureRecognizers()
+        setupPlaceholderPins()
     }
+
+    // MARK: - Setup Methods
+
+    func setupPlaceholderPins() {
+        addPin(coordinate: CLLocationCoordinate2D(latitude: 40.7128, longitude: -74.0060), identifier: "NewYork", album: Album(id: 1, title: "New York", coverImage: "mock1.png", images: ["mock1", "mock2"]))
+        addPin(coordinate: CLLocationCoordinate2D(latitude: 48.8566, longitude: 2.3522), identifier: "Paris", album: Album(id: 2, title: "Paris", coverImage: "mock2.png", images: ["mock3", "mock4"]))
+        addPin(coordinate: CLLocationCoordinate2D(latitude: 35.6895, longitude: 139.6917), identifier: "Japan", album: Album(id: 3, title: "Japan", coverImage: "mock3.png", images: ["mock3", "mock2"]))
+        addPin(coordinate: CLLocationCoordinate2D(latitude: 15.8700, longitude: 100.9925), identifier: "Thailand", album: Album(id: 4, title: "Thailand", coverImage: "mock1.png", images: ["mock1", "mock2"]))
+    }
+
+    // MARK: - Annotation Methods
+
+    func addPin(coordinate: CLLocationCoordinate2D, identifier: String, album: Album) {
+        var pointAnnotation = PointAnnotation(coordinate: coordinate)
+        if let image = UIImage(named: "Pinuser.png")?.resizeImage(to: CGSize(width: 60, height: 60)) {
+            pointAnnotation.image = .init(image: image, name: "Pinuser")
+        } else {
+            pointAnnotation.iconColor = StyleColor(UIColor.red)
+        }
+
+        pointAnnotation.tapHandler = { [weak self] annotation in
+            self?.presentAlbumView(for: identifier)
+            return true
+        }
+
+        annotationsDictionary[identifier] = (pointAnnotation, album)
+        pointAnnotationManager?.annotations.append(pointAnnotation)
+    }
+
+    func presentAlbumView(for identifier: String) {
+        guard let annotationData = annotationsDictionary[identifier] else { return }
+        let albumView = AlbumView(album: annotationData.album)
+        let hostingController = UIHostingController(rootView: albumView)
+        hostingController.modalPresentationStyle = .fullScreen
+        present(hostingController, animated: true, completion: nil)
+    }
+
+    // MARK: - Location Methods
 
     @objc func addPinAtUserLocation() {
         if let currentLocation = locationManager.location?.coordinate {
-            var pointAnnotation = PointAnnotation(coordinate: currentLocation)
-            if let image = UIImage(named: "marker") {
-                pointAnnotation.image = .init(image: image, name: "marker")
-            } else {
-                pointAnnotation.iconColor = StyleColor(UIColor.red)
-            }
-
-            // Generate a unique identifier for the annotation
-            let identifier = UUID().uuidString
-
-            // Print the identifier for debugging purposes
-            print("Added new pin with identifier: \(identifier)")
-
-            // Store the annotation in the dictionary with its identifier
-            annotationsDictionary[identifier] = pointAnnotation
-
-            // Add the annotation to the pointAnnotationManager
-            pointAnnotationManager?.annotations.append(pointAnnotation)
-
-            // Optionally animate the map view to the location of the new pin
+            let defaultAlbum = Album(id: 5, title: "Default Album", coverImage: "default_cover", images: ["default1", "default2"])
+            addPin(coordinate: currentLocation, identifier: UUID().uuidString, album: defaultAlbum)
             animateToLocation(currentLocation)
         }
     }
 
-    func setupPinGestureRecognizers() {
-        // Placeholder for adding gesture recognizers to existing pins if any
-    }
-
-    @objc func handleLongPressOnPin(_ gesture: UILongPressGestureRecognizer) {
-        // Placeholder for handling long press on pin
-    }
-
-    func updatePinLocation() {
-        // Placeholder for updating the location of the moved pin
-    }
-
-    func deletePin(at coordinate: CLLocationCoordinate2D) {
-        // Placeholder for deleting the pin
-    }
+    // MARK: - Camera Methods
 
     func animateToLocation(_ coordinates: CLLocationCoordinate2D) {
         let cameraOptions = CameraOptions(center: coordinates, zoom: 14.0)
         mapView.camera.ease(to: cameraOptions, duration: 2.0)
     }
 }
+
+// MARK: - Map1Wrapper
 
 struct Map1Wrapper: UIViewControllerRepresentable {
     func makeUIViewController(context: Context) -> Map1 {
@@ -110,6 +110,19 @@ struct Map1Wrapper: UIViewControllerRepresentable {
     }
 }
 
+// MARK: - Notification Extension
+
 extension Notification.Name {
     static let addPin = Notification.Name("addPin")
+}
+
+// MARK: - UIImage Extension
+
+extension UIImage {
+    func resizeImage(to size: CGSize) -> UIImage? {
+        UIGraphicsBeginImageContextWithOptions(size, false, 0.0)
+        defer { UIGraphicsEndImageContext() }
+        self.draw(in: CGRect(origin: .zero, size: size))
+        return UIGraphicsGetImageFromCurrentImageContext()
+    }
 }

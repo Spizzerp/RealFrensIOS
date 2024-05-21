@@ -24,6 +24,7 @@ struct ContentView: View {
     @State private var selectedMap: Int = 1 // 1 for Map1, 2 for Map2
     @State private var searchText: String = "" // State variable for search text
     @State private var isSearchBarVisible: Bool = false // State variable to track search bar visibility
+    @State private var currentEventIndex: Int = 0 // State variable to track the current event index
 
     var body: some View {
         ZStack {
@@ -52,6 +53,13 @@ struct ContentView: View {
                 Spacer()
                 newLayerView()
             }
+
+            // Event alerts section
+            VStack {
+                Spacer()
+                eventAlertsView()
+            }
+            .padding(.bottom, 65) // Adjust the bottom padding to move the events section up
 
             // Button container should be at the very front
             buttonContainerView()
@@ -204,7 +212,7 @@ struct ContentView: View {
         }
         .zIndex(1) // Ensure the button container is visible above the new layer
     }
-    
+
     // MARK: - New Layer View
     @ViewBuilder
     func newLayerView() -> some View {
@@ -241,6 +249,87 @@ struct ContentView: View {
         }
         .frame(maxHeight: .infinity, alignment: .bottom)
     }
+
+    // MARK: - Event Alerts View
+    @ViewBuilder
+    func eventAlertsView() -> some View {
+        VStack {
+            Rectangle()
+                .foregroundColor(Color(hex: "191919"))
+                .frame(height: 130)
+                .overlay(
+                    VStack {
+                        Image("Divider")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(height: 10)
+                            .padding(.bottom, 0)
+
+                        Text("Event Alerts")
+                            .font(Font.custom("Switzer Variable", size: 12).weight(.medium))
+                            .tracking(2.35)
+                            .foregroundColor(.white)
+
+                        Image("Divider")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(height: 10)
+
+                        ZStack {
+                            TabView(selection: $currentEventIndex) {
+                                eventItemView(imageName: "Pinbonk", eventText: "Bonk! Event Near You")
+                                    .tag(0)
+                                eventItemView(imageName: "Pinsol", eventText: "Solana BreakPoint SOON")
+                                    .tag(1)
+                            }
+                            .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+                            .frame(height: 100)
+
+                            VStack {
+                                Spacer()
+                                eventIndicatorView()
+                                    .padding(.bottom, 25)
+                            }
+                        }
+                    }
+                )
+        }
+    }
+
+    // MARK: - Event Item View
+    @ViewBuilder
+    func eventItemView(imageName: String, eventText: String) -> some View {
+        HStack {
+            Image(imageName)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 44.35, height: 44.35)
+
+            Text(eventText)
+                .font(Font.custom("Switzer Variable", size: 20).weight(.medium))
+                .foregroundColor(.white)
+        }
+        .frame(maxWidth: .infinity) // Make the HStack fill the available width
+        .padding(.horizontal) // Add horizontal padding to the HStack
+        .padding(.bottom, 30)
+        .onTapGesture {
+            // Send notification to bring up event on the map
+            NotificationCenter.default.post(name: .eventSelected, object: imageName)
+            print("Clicked on event item: \(eventText)")
+        }
+    }
+
+    // MARK: - Event Indicator View
+    @ViewBuilder
+    func eventIndicatorView() -> some View {
+        HStack(spacing: 8) {
+            ForEach(0..<2) { index in
+                Circle()
+                    .frame(width: 5, height: 5)
+                    .foregroundColor(index == currentEventIndex ? Color(hex: "9E85FF") : Color(hex: "D9D9D9").opacity(0.29))
+            }
+        }
+    }
 }
 
 // Preview provider for ContentView
@@ -248,4 +337,8 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
     }
+}
+
+extension Notification.Name {
+    static let eventSelected = Notification.Name("eventSelected")
 }
