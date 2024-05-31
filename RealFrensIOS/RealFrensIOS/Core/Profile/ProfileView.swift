@@ -1,21 +1,8 @@
 import SwiftUI
 
-// MARK: - Data Models
-struct BadgeInfo {
-    let title: String
-    let description: String
-    let dateAcquired: String
-}
-
-struct Album: Identifiable {
-    let id: Int
-    let title: String
-    let coverImage: String
-    let images: [String]
-}
-
 // MARK: - Profile View
 struct ProfileView: View {
+    
     // MARK: - Properties
     // Mock data for images and badges
     let mockImages = ["mock1", "mock2", "mock3", "mock4"]
@@ -31,10 +18,10 @@ struct ProfileView: View {
     
     // Sample data for albums
     let albums = [
-        Album(id: 1, title: "Japan 2023", coverImage: "mock1", images: ["mock1", "mock2", "mock3"]),
-        Album(id: 2, title: "France 2024", coverImage: "mock2", images: ["mock2", "mock3", "mock4"]),
-        Album(id: 3, title: "Thailand 2022", coverImage: "mock3", images: ["mock3", "mock1", "mock2"]),
-        Album(id: 4, title: "New York 2023", coverImage: "mock4", images: ["mock4", "mock3", "mock2"]),
+        Album(id: 1, title: "Japan 2023", coverImage: "mock1", images: ["mock1", "mock2", "mock3"], date: Date()),
+        Album(id: 2, title: "France 2024", coverImage: "mock2", images: ["mock2", "mock3", "mock4"], date: Date()),
+        Album(id: 3, title: "Thailand 2022", coverImage: "mock3", images: ["mock3", "mock1", "mock2"], date: Date()),
+        Album(id: 4, title: "New York 2023", coverImage: "mock4", images: ["mock4", "mock3", "mock2"], date: Date())
         // Add more sample albums
     ]
     

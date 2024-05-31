@@ -1,36 +1,41 @@
 import SwiftUI
 
-struct AlbumView: View {
-    let album: Album
+struct EventView: View {
+    let event: Event
     @State private var selectedPhotoIndex: Int = 0
-    @State private var comments: [String] = ["Congrats!!!!", "I love NY ^.^"]
+    @State private var comments: [String] = ["Looking forward to this event!", "Can't wait to be there!"]
     @State private var newComment: String = ""
     @Environment(\.presentationMode) var presentationMode
     
     var formattedDate: String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM/dd/yyyy"
-        return dateFormatter.string(from: album.date)
+        return dateFormatter.string(from: event.date)
     }
     
     var body: some View {
         ZStack {
             VStack {
-                // MARK: - Title Section
+
+                // **MARK: - Title Section**
                 HStack {
                     VStack(alignment: .leading) {
-                        Text("Photo Album")
+                        Text("Event Details")
                             .font(.headline)
                             .foregroundColor(Color(red: 0.62, green: 0.52, blue: 1))
-                        Text(album.title)
+                        
+                        Text(event.title)
                             .font(.largeTitle)
                             .fontWeight(.bold)
                             .foregroundColor(.white)
-                        Text("NY, USA, \(formattedDate)")
+                        
+                        Text("\(event.location). \(event.time), \(formattedDate)")
                             .font(.subheadline)
                             .foregroundColor(Color.gray)
                     }
+                    
                     Spacer()
+                    
                     Button(action: {
                         self.presentationMode.wrappedValue.dismiss()
                     }) {
@@ -44,8 +49,8 @@ struct AlbumView: View {
                 // MARK: - Photo Carousel
                 GeometryReader { geometry in
                     TabView(selection: $selectedPhotoIndex) {
-                        ForEach(album.images.indices, id: \.self) { index in
-                            Image(album.images[index])
+                        ForEach(event.images.indices, id: \.self) { index in
+                            Image(event.images[index])
                                 .resizable()
                                 .scaledToFill()
                                 .frame(width: geometry.size.width - 40, height: geometry.size.height)
@@ -57,13 +62,13 @@ struct AlbumView: View {
                     }
                     .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
                 }
-                .frame(height: 300)
+                .frame(height: 200)
                 
                 // MARK: - Small Photo Thumbnails
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 5) {
-                        ForEach(album.images.indices, id: \.self) { index in
-                            Image(album.images[index])
+                        ForEach(event.images.indices, id: \.self) { index in
+                            Image(event.images[index])
                                 .resizable()
                                 .scaledToFill()
                                 .frame(width: 32, height: 32)
@@ -86,8 +91,8 @@ struct AlbumView: View {
                 .frame(height: 40)
                 
                 // **MARK: - Description Section**
-                VStack(alignment: .center) {
-                    Text("First day of my Web3 job. It was an amazing experience exploring the city and starting my new journey.")
+                VStack(alignment: .leading) {
+                    Text("Join us for an evening of fun and festivities. We're bringing Web3 to reality. All are welcome and we've got some special prizes for attendees. LFG!")
                         .font(.caption)
                         .foregroundColor(.white)
                         .padding(.vertical, 5)
@@ -100,6 +105,55 @@ struct AlbumView: View {
                 .padding(.horizontal)
                 .padding(.vertical, 1)
                 .fixedSize(horizontal: true, vertical: false)
+                
+                // **MARK: - RSVP Button, Share Button, and Attendees Section**
+                HStack {
+                    Button(action: {
+                        // Handle RSVP action
+                    }) {
+                        Text("RSVP")
+                            .font(.headline)
+                            .foregroundColor(.white)
+                            .padding()
+                            .frame(maxHeight: 40)
+                            .frame(maxWidth: 100)
+                            .background(Color(hex: 0x631EE3))
+                            .cornerRadius(10)
+                    }
+                    .padding(.horizontal)
+
+                    Button(action: {
+                        // Handle share button action
+                    }) {
+                        Image(systemName: "square.and.arrow.up")
+                            .font(.system(size: 20))
+                            .foregroundColor(.white)
+                    }
+                    .padding(.horizontal, -10)
+
+                    Spacer()
+
+                    Button(action: {
+                        // Handle attendees button action
+                    }) {
+                        HStack(spacing: -10) {
+                            ForEach(0..<4) { index in
+                                Image("pfp\(index + 1)")
+                                    .resizable()
+                                    .frame(width: 32, height: 32)
+                                    .clipShape(Circle())
+                                    .overlay(Circle().stroke(Color(hex: 0x9F85FF), lineWidth: 1))
+                            }
+
+                            Text("+100")
+                                .foregroundColor(.white)
+                                .font(.subheadline)
+                                .padding(.leading, 15)
+                        }
+                    }
+                    .padding(.trailing, 20)
+                }
+                .padding(.vertical, 5)
                 
                 // MARK: - Divider
                 Image("Divider")
@@ -121,7 +175,7 @@ struct AlbumView: View {
                     ScrollView {
                         VStack(alignment: .leading, spacing: 5) {
                             ForEach(comments.indices, id: \.self) { index in
-                                CommentView(username: "User\(index + 1)", comment: comments[index], profileImage: index % 2 == 0 ? "pfp5" : "pfp2")
+                                EventCommentView(username: "User\(index + 1)", comment: comments[index], profileImage: index % 2 == 0 ? "pfp5" : "pfp2")
                             }
                         }
                         .padding(.horizontal, 10)
@@ -139,7 +193,7 @@ struct AlbumView: View {
                                 .cornerRadius(10)
                             
                             Button(action: {
-                                if !newComment.isEmpty {
+                                if (!newComment.isEmpty) {
                                     comments.append(newComment)
                                     newComment = ""
                                 }
@@ -185,8 +239,8 @@ struct AlbumView: View {
     }
 }
 
-// MARK: - Comment View
-struct CommentView: View {
+// MARK: - EventCommentView
+struct EventCommentView: View {
     let username: String
     let comment: String
     let profileImage: String
@@ -226,24 +280,11 @@ struct CommentView: View {
     }
 }
 
-// MARK: - Custom Color Extension
-extension Color {
-    init(hex: UInt, alpha: Double = 1) {
-        self.init(
-            .sRGB,
-            red: Double((hex >> 16) & 0xff) / 255,
-            green: Double((hex >> 8) & 0xff) / 255,
-            blue: Double(hex & 0xff) / 255,
-            opacity: alpha
-        )
-    }
-}
-
 // MARK: - Preview Provider
-struct AlbumView_Previews: PreviewProvider {
+struct EventView_Previews: PreviewProvider {
     static var previews: some View {
         let sampleDate = Date()
-        let sampleAlbum = Album(id: 1, title: "First NY Trip", coverImage: "mock1", images: ["mock1", "mock2", "mock3"], date: sampleDate)
-        AlbumView(album: sampleAlbum)
+        let sampleEvent = Event(id: 1, title: "Breakpoint", location: "SGP", time: "6:00 PM", date: sampleDate, images: ["Mocksgp1", "Mocksgp2", "Mocksgp3"])
+        EventView(event: sampleEvent)
     }
 }

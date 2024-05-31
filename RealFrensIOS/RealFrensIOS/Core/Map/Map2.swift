@@ -8,6 +8,7 @@ class Map2: UIViewController, CLLocationManagerDelegate {
     var pointAnnotationManager: PointAnnotationManager?
     var locationManager = CLLocationManager()
     var friendsAnnotations: [String: PointAnnotation] = [:] // Store friends' locations differently if needed
+    var annotationsDictionary: [String: Event] = [:] // Store events associated with annotations
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,23 +45,50 @@ class Map2: UIViewController, CLLocationManagerDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(handleEventSelection(notification:)), name: .eventSelected, object: nil)
         setupGestureRecognizersForFriends()
 
-        // Add Pinbonk.png and Pinsol.png as pins
-        addPinAnnotation(imageName: "Pinbonk", coordinate: CLLocationCoordinate2D(latitude: 40.7128, longitude: -74.0060)) // New York City
-        addPinAnnotation(imageName: "Pinsol", coordinate: CLLocationCoordinate2D(latitude: 1.3521, longitude: 103.8198)) // Singapore
+        // Define some sample events
+        let nycEvent = Event(id: 1, title: "Bonk Event", location: "NYC", time: "6:00 PM", date: Date(), images: ["mock4"])
+        let sgpEvent = Event(id: 2, title: "Solana Breakpoint", location: "SGP", time: "8:00 PM", date: Date(), images: ["Mocksgp1", "Mocksgp2", "Mocksgp3"])
+
+        // Add Pinbonk.png and Pinsol.png as pins with event details
+        addPinAnnotation(imageName: "Pinbonk", coordinate: CLLocationCoordinate2D(latitude: 40.7128, longitude: -74.0060), event: nycEvent)
+        addPinAnnotation(imageName: "Pinsol", coordinate: CLLocationCoordinate2D(latitude: 1.3521, longitude: 103.8198), event: sgpEvent)
     }
 
-    func addPinAnnotation(imageName: String, coordinate: CLLocationCoordinate2D) {
+    func addPinAnnotation(imageName: String, coordinate: CLLocationCoordinate2D, event: Event) {
         if let image = UIImage(named: imageName) {
             let size = CGSize(width: 60, height: 60) // Adjust the size as needed
             let resizedImage = resizeImage(image: image, targetSize: size)
             var pinAnnotation = PointAnnotation(coordinate: coordinate)
             pinAnnotation.image = .init(image: resizedImage, name: imageName)
-            
+
             // Set the anchor point for the pin annotation
             pinAnnotation.iconAnchor = .bottom
-            
+
+            // Add tap handler to the annotation
+            pinAnnotation.tapHandler = { [weak self] annotation in
+                self?.presentEventView(event: event)
+                return true
+            }
+
             pointAnnotationManager?.annotations.append(pinAnnotation)
+            annotationsDictionary[imageName] = event
         }
+    }
+
+    func resizeImage(image: UIImage, targetSize: CGSize) -> UIImage {
+        let size = image.size
+        let widthRatio = targetSize.width / size.width
+        let heightRatio = targetSize.height / size.height
+        let scaleFactor = min(widthRatio, heightRatio)
+
+        let scaledSize = CGSize(width: size.width * scaleFactor, height: size.height * scaleFactor)
+
+        let renderer = UIGraphicsImageRenderer(size: scaledSize)
+        let scaledImage = renderer.image { _ in
+            image.draw(in: CGRect(origin: .zero, size: scaledSize))
+        }
+
+        return scaledImage
     }
 
     @objc func handleEventSelection(notification: Notification) {
@@ -93,28 +121,19 @@ class Map2: UIViewController, CLLocationManagerDelegate {
         cameraAnimator.startAnimation()
     }
 
-    func resizeImage(image: UIImage, targetSize: CGSize) -> UIImage {
-        let size = image.size
-        let widthRatio = targetSize.width / size.width
-        let heightRatio = targetSize.height / size.height
-        let scaleFactor = min(widthRatio, heightRatio)
-        
-        let scaledSize = CGSize(width: size.width * scaleFactor, height: size.height * scaleFactor)
-        
-        let renderer = UIGraphicsImageRenderer(size: scaledSize)
-        let scaledImage = renderer.image { _ in
-            image.draw(in: CGRect(origin: .zero, size: scaledSize))
-        }
-        
-        return scaledImage
-    }
-
     @objc func addFriendLocation() {
         // Implement logic to add friends' locations as annotations
     }
 
     func setupGestureRecognizersForFriends() {
         // Placeholder for adding gesture recognizers specific to friends' pins
+    }
+
+    func presentEventView(event: Event) {
+        let eventView = EventView(event: event)
+        let hostingController = UIHostingController(rootView: eventView)
+        hostingController.modalPresentationStyle = .fullScreen
+        present(hostingController, animated: true, completion: nil)
     }
 
     // Implement additional functionalities specific to "Frens World"
@@ -131,6 +150,10 @@ struct Map2Wrapper: UIViewControllerRepresentable {
 
     func updateUIViewController(_ uiViewController: Map2, context: Context) {
         // Update logic if needed
+    }
+
+    func handleEventSelection() {
+        // Perform any additional logic to locate the event pin on the map
     }
 }
 

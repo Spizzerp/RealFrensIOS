@@ -201,7 +201,12 @@ struct ContentView: View {
                 .fill(selectedMap == mapIndex ? Color(hex: "202020").opacity(0.8) : Color.clear) // Change the opacity of the selected button background
                 .frame(width: 140, height: 50)
 
-            Button(action: { selectedMap = mapIndex }) {
+            Button(action: {
+                selectedMap = mapIndex
+                if selectedMap == 2 {
+                    NotificationCenter.default.post(name: .eventSelected, object: nil)
+                }
+            }) {
                 Text(title)
                     .font(.custom("Inter-Bold", size: 14))
                     .foregroundColor(.white.opacity(0.8)) // Change the opacity of the button text
@@ -316,6 +321,14 @@ struct ContentView: View {
             // Send notification to bring up event on the map
             NotificationCenter.default.post(name: .eventSelected, object: imageName)
             print("Clicked on event item: \(eventText)")
+
+            // If currently in "My World" view, switch to "Frens World" view and trigger event selection
+            if selectedMap == 1 {
+                selectedMap = 2
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                    NotificationCenter.default.post(name: .eventSelected, object: imageName)
+                }
+            }
         }
     }
 

@@ -5,37 +5,40 @@ struct MainView: View {
     
     var body: some View {
         ZStack {
-            // Switch between different content views
             switch currentTab {
             case .content:
                 ContentView()
             case .profile:
                 ProfileView()
+            case .album(let album):
+                AlbumView(album: album)
+            case .event(let event):
+                EventView(event: event)
             }
             
-            // Overlay the TabBarView at the bottom of the screen
             VStack {
-                Spacer() // This will push the tab bar to the bottom
-                
+                Spacer()
                 TabBarView(
                     onProfileSelected: {
                         print("Profile Selected")
                         currentTab = .profile
                     },
                     onContentSelected: {
-                        print("Map Selected")
+                        print("Content Selected")
                         currentTab = .content
                     }
                 )
-                .padding(.bottom, 20) // Remove the bottom padding
+                .padding(.bottom, 20)
                 .background(Color.clear)
             }
-            .edgesIgnoringSafeArea(.bottom) // Extend the VStack to the bottom edge of the screen
+            .edgesIgnoringSafeArea(.bottom)
         }
     }
     
     enum Tab {
         case content, profile
+        case album(Album)
+        case event(Event)
     }
 }
 

@@ -17,6 +17,10 @@
 		FA1FE5BF2B42AE8200AE2C00 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1FE5BE2B42AE8200AE2C00 /* MainView.swift */; };
 		FA1FE5C12B42B39400AE2C00 /* ParentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1FE5C02B42B39400AE2C00 /* ParentView.swift */; };
 		FA45A7BB2B36B13A00180F0C /* LoginPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA45A7BA2B36B13A00180F0C /* LoginPageView.swift */; };
+		FA45D0592C064CDD006E64E3 /* EventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA45D0582C064CDD006E64E3 /* EventView.swift */; };
+		FA45D05E2C08BAD3006E64E3 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA45D05D2C08BAD3006E64E3 /* Album.swift */; };
+		FA45D0622C08C22A006E64E3 /* BadgeInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA45D0612C08C22A006E64E3 /* BadgeInfo.swift */; };
+		FA45D0642C08D99D006E64E3 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA45D0632C08D99D006E64E3 /* Event.swift */; };
 		FA47E7F42B046D530013B67F /* RealFrensIOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA47E7F32B046D530013B67F /* RealFrensIOSApp.swift */; };
 		FA47E7F62B046D530013B67F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA47E7F52B046D530013B67F /* ContentView.swift */; };
 		FA47E7F82B046D550013B67F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA47E7F72B046D550013B67F /* Assets.xcassets */; };
@@ -202,6 +206,10 @@
 		FA1FE5BE2B42AE8200AE2C00 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		FA1FE5C02B42B39400AE2C00 /* ParentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentView.swift; sourceTree = "<group>"; };
 		FA45A7BA2B36B13A00180F0C /* LoginPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageView.swift; sourceTree = "<group>"; };
+		FA45D0582C064CDD006E64E3 /* EventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventView.swift; sourceTree = "<group>"; };
+		FA45D05D2C08BAD3006E64E3 /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
+		FA45D0612C08C22A006E64E3 /* BadgeInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeInfo.swift; sourceTree = "<group>"; };
+		FA45D0632C08D99D006E64E3 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		FA47E7F02B046D530013B67F /* RealFrensIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RealFrensIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA47E7F32B046D530013B67F /* RealFrensIOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealFrensIOSApp.swift; sourceTree = "<group>"; };
 		FA47E7F52B046D530013B67F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -495,6 +503,9 @@
 			children = (
 				FAD302C22B0E01770032F966 /* User.swift */,
 				FA1FE5BC2B429AB800AE2C00 /* Pins.swift */,
+				FA45D05D2C08BAD3006E64E3 /* Album.swift */,
+				FA45D0612C08C22A006E64E3 /* BadgeInfo.swift */,
+				FA45D0632C08D99D006E64E3 /* Event.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -524,6 +535,7 @@
 			children = (
 				FA47E82B2B0478460013B67F /* ProfileView.swift */,
 				FACB85412BD5BB4700C9F5E0 /* AlbumView.swift */,
+				FA45D0582C064CDD006E64E3 /* EventView.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -1008,6 +1020,7 @@
 				FA47E8A42B0889C60013B67F /* MapMarker.swift in Sources */,
 				FA45A7BB2B36B13A00180F0C /* LoginPageView.swift in Sources */,
 				FA027C292B1D746700CB0E37 /* LoginView.swift in Sources */,
+				FA45D0622C08C22A006E64E3 /* BadgeInfo.swift in Sources */,
 				FA1FE5B72B40557100AE2C00 /* CompleteSignupView.swift in Sources */,
 				FA47E89C2B049D770013B67F /* Map1.swift in Sources */,
 				FAD302C32B0E01770032F966 /* User.swift in Sources */,
@@ -1015,9 +1028,12 @@
 				FA1FE5BF2B42AE8200AE2C00 /* MainView.swift in Sources */,
 				FA1FE5AE2B4040C700AE2C00 /* AddEmailView.swift in Sources */,
 				FADF8D0F2BA38C15004D7488 /* Map2.swift in Sources */,
+				FA45D0642C08D99D006E64E3 /* Event.swift in Sources */,
+				FA45D0592C064CDD006E64E3 /* EventView.swift in Sources */,
 				FA47E7F42B046D530013B67F /* RealFrensIOSApp.swift in Sources */,
 				FA47E8A22B0722F50013B67F /* TabBarView.swift in Sources */,
 				FA1FE5B52B4053F100AE2C00 /* CreatePassView.swift in Sources */,
+				FA45D05E2C08BAD3006E64E3 /* Album.swift in Sources */,
 				FACB85422BD5BB4700C9F5E0 /* AlbumView.swift in Sources */,
 				FA1FE5BD2B429AB800AE2C00 /* Pins.swift in Sources */,
 			);

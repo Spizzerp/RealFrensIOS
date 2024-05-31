@@ -47,10 +47,10 @@ class Map1: UIViewController, CLLocationManagerDelegate {
     // MARK: - Setup Methods
 
     func setupPlaceholderPins() {
-        addPin(coordinate: CLLocationCoordinate2D(latitude: 40.7128, longitude: -74.0060), identifier: "NewYork", album: Album(id: 1, title: "New York", coverImage: "mock1.png", images: ["mock1", "mock2"]))
-        addPin(coordinate: CLLocationCoordinate2D(latitude: 48.8566, longitude: 2.3522), identifier: "Paris", album: Album(id: 2, title: "Paris", coverImage: "mock2.png", images: ["mock3", "mock4"]))
-        addPin(coordinate: CLLocationCoordinate2D(latitude: 35.6895, longitude: 139.6917), identifier: "Japan", album: Album(id: 3, title: "Japan", coverImage: "mock3.png", images: ["mock3", "mock2"]))
-        addPin(coordinate: CLLocationCoordinate2D(latitude: 15.8700, longitude: 100.9925), identifier: "Thailand", album: Album(id: 4, title: "Thailand", coverImage: "mock1.png", images: ["mock1", "mock2"]))
+        addPin(coordinate: CLLocationCoordinate2D(latitude: 40.7128, longitude: -74.0060), identifier: "NewYork", album: Album(id: 1, title: "New York", coverImage: "mock1.png", images: ["mock1", "mock2"], date: Date()))
+        addPin(coordinate: CLLocationCoordinate2D(latitude: 48.8566, longitude: 2.3522), identifier: "Paris", album: Album(id: 2, title: "Paris", coverImage: "mock2.png", images: ["mock3", "mock4"], date: Date()))
+        addPin(coordinate: CLLocationCoordinate2D(latitude: 35.6895, longitude: 139.6917), identifier: "Japan", album: Album(id: 3, title: "Japan", coverImage: "mock3.png", images: ["mock3", "mock2"], date: Date()))
+        addPin(coordinate: CLLocationCoordinate2D(latitude: 15.8700, longitude: 100.9925), identifier: "Thailand", album: Album(id: 4, title: "Thailand", coverImage: "mock1.png", images: ["mock1", "mock2"], date: Date()))
     }
 
     // MARK: - Annotation Methods
@@ -74,7 +74,8 @@ class Map1: UIViewController, CLLocationManagerDelegate {
 
     func presentAlbumView(for identifier: String) {
         guard let annotationData = annotationsDictionary[identifier] else { return }
-        let albumView = AlbumView(album: annotationData.album)
+        let album = annotationData.album
+        let albumView = AlbumView(album: album)
         let hostingController = UIHostingController(rootView: albumView)
         hostingController.modalPresentationStyle = .fullScreen
         present(hostingController, animated: true, completion: nil)
@@ -84,7 +85,7 @@ class Map1: UIViewController, CLLocationManagerDelegate {
 
     @objc func addPinAtUserLocation() {
         if let currentLocation = locationManager.location?.coordinate {
-            let defaultAlbum = Album(id: 5, title: "Default Album", coverImage: "default_cover", images: ["default1", "default2"])
+            let defaultAlbum = Album(id: 5, title: "Default Album", coverImage: "default_cover", images: ["default1", "default2"], date: Date())
             addPin(coordinate: currentLocation, identifier: UUID().uuidString, album: defaultAlbum)
             animateToLocation(currentLocation)
         }
