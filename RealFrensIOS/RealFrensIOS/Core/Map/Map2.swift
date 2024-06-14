@@ -46,7 +46,7 @@ class Map2: UIViewController, CLLocationManagerDelegate {
         setupGestureRecognizersForFriends()
 
         // Define some sample events
-        let nycEvent = Event(id: 1, title: "Bonk Event", location: "NYC", time: "6:00 PM", date: Date(), images: ["mock4"])
+        let nycEvent = Event(id: 1, title: "Bonking in NYC", location: "NYC", time: "6:00 PM", date: Date(), images: ["mock4", "Bonkmock1", "Bonkmock2", "Bonkmock3", "Bonkmock4"])
         let sgpEvent = Event(id: 2, title: "Solana Breakpoint", location: "SGP", time: "8:00 PM", date: Date(), images: ["Mocksgp1", "Mocksgp2", "Mocksgp3"])
 
         // Add Pinbonk.png and Pinsol.png as pins with event details

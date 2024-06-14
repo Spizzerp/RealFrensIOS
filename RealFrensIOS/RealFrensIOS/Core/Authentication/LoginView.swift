@@ -42,7 +42,7 @@ struct LoginView: View {
                             .font(.system(size: 16, weight: .semibold))
                             .foregroundColor(Color(hex: "9F85FF"))
                     }
-                    .padding(.top, 120)
+                    .padding(.top, 160)
                     
                     // Navigation section for logging in
                     HStack(spacing: 10) {
@@ -66,7 +66,7 @@ struct LoginView: View {
                                 .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.54), radius: 30)
                         }
                     }
-                    .padding(.bottom, 280)
+                    .padding(.bottom, 30)
                     .frame(maxHeight: .infinity, alignment: .bottom)
                     .opacity(showButtons ? 1 : 0)
                     .animation(.easeIn(duration: 2), value: showButtons)
