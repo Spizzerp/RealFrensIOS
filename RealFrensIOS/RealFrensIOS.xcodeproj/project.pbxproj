@@ -33,6 +33,50 @@
 		FA47E89E2B049D960013B67F /* MapboxMaps in Frameworks */ = {isa = PBXBuildFile; productRef = FA47E89D2B049D960013B67F /* MapboxMaps */; };
 		FA47E8A22B0722F50013B67F /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA47E8A12B0722F50013B67F /* TabBarView.swift */; };
 		FA47E8A42B0889C60013B67F /* MapMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA47E8A32B0889C60013B67F /* MapMarker.swift */; };
+		FA79553C2C1DD13C0068337E /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA79553B2C1DD13C0068337E /* LoginViewModel.swift */; };
+		FA79553E2C1DD15A0068337E /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA79553D2C1DD15A0068337E /* RegistrationViewModel.swift */; };
+		FA7955402C1DD16F0068337E /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA79553F2C1DD16F0068337E /* ContentViewModel.swift */; };
+		FA7955422C1DD1890068337E /* AlbumViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7955412C1DD1890068337E /* AlbumViewModel.swift */; };
+		FA7955442C1DD19C0068337E /* EventViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7955432C1DD19C0068337E /* EventViewModel.swift */; };
+		FA7955462C1DD1AD0068337E /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7955452C1DD1AD0068337E /* ProfileViewModel.swift */; };
+		FA7955482C1DD1D70068337E /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7955472C1DD1D70068337E /* AuthenticationService.swift */; };
+		FA79554A2C1DD1EA0068337E /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7955492C1DD1EA0068337E /* FirebaseService.swift */; };
+		FA79554C2C1DD1F90068337E /* MapboxService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA79554B2C1DD1F90068337E /* MapboxService.swift */; };
+		FA79554E2C1DDB730068337E /* CustomFontModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA79554D2C1DDB730068337E /* CustomFontModifier.swift */; };
+		FA7955562C1DE37F0068337E /* RoundedCorners.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7955552C1DE37F0068337E /* RoundedCorners.swift */; };
+		FA7955582C1DF30B0068337E /* ProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7955572C1DF30B0068337E /* ProfileImageView.swift */; };
+		FA79555A2C1DF3290068337E /* BadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7955592C1DF3290068337E /* BadgeView.swift */; };
+		FA79555C2C1DF3960068337E /* CustomGradientBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA79555B2C1DF3950068337E /* CustomGradientBackground.swift */; };
+		FA79555E2C1DF3F60068337E /* StatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA79555D2C1DF3F60068337E /* StatView.swift */; };
+		FA7955602C1DF4160068337E /* AlbumInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA79555F2C1DF4160068337E /* AlbumInfoView.swift */; };
+		FA7955622C1DF7570068337E /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7955612C1DF7570068337E /* ColorExtension.swift */; };
+		FA7955652C1DF9640068337E /* MapWrapperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7955642C1DF9640068337E /* MapWrapperView.swift */; };
+		FA7955682C1DF9980068337E /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7955672C1DF9980068337E /* SearchBarView.swift */; };
+		FA79556A2C1DF9AE0068337E /* SearchButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7955692C1DF9AE0068337E /* SearchButtonView.swift */; };
+		FA79556C2C1DF9C50068337E /* AddPinButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA79556B2C1DF9C50068337E /* AddPinButtonView.swift */; };
+		FA79556E2C1DF9D70068337E /* ButtonContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA79556D2C1DF9D70068337E /* ButtonContainerView.swift */; };
+		FA7955702C1DF9EB0068337E /* MapButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA79556F2C1DF9EB0068337E /* MapButtonView.swift */; };
+		FA7955722C1DFA050068337E /* EventAlertsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7955712C1DFA050068337E /* EventAlertsView.swift */; };
+		FA7955742C1DFA1F0068337E /* EventItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7955732C1DFA1F0068337E /* EventItemView.swift */; };
+		FA7955762C1DFA3C0068337E /* EventIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7955752C1DFA3C0068337E /* EventIndicatorView.swift */; };
+		FA79557A2C1DFAAF0068337E /* NotificationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7955792C1DFAAF0068337E /* NotificationExtension.swift */; };
+		FA79557C2C1DFB550068337E /* ButtonsLayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA79557B2C1DFB550068337E /* ButtonsLayerView.swift */; };
+		FA79557E2C1E04B80068337E /* AlbumTitleSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA79557D2C1E04B80068337E /* AlbumTitleSection.swift */; };
+		FA7955802C1E04CF0068337E /* AlbumPhotoCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA79557F2C1E04CF0068337E /* AlbumPhotoCarousel.swift */; };
+		FA7955822C1E04E80068337E /* AlbumPhotoThumbnails.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7955812C1E04E80068337E /* AlbumPhotoThumbnails.swift */; };
+		FA7955842C1E04FC0068337E /* AlbumDescriptionSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7955832C1E04FC0068337E /* AlbumDescriptionSection.swift */; };
+		FA7955862C1E05130068337E /* AlbumCommentsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7955852C1E05130068337E /* AlbumCommentsSection.swift */; };
+		FA7955882C1E05270068337E /* AlbumAddCommentSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7955872C1E05270068337E /* AlbumAddCommentSection.swift */; };
+		FA79558A2C1E05AE0068337E /* AlbumCommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7955892C1E05AE0068337E /* AlbumCommentView.swift */; };
+		FA79558C2C1E0CD80068337E /* EventTitleSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA79558B2C1E0CD80068337E /* EventTitleSection.swift */; };
+		FA79558E2C1E0CED0068337E /* EventPhotoCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA79558D2C1E0CED0068337E /* EventPhotoCarousel.swift */; };
+		FA7955902C1E0D060068337E /* EventPhotoThumbnails.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA79558F2C1E0D060068337E /* EventPhotoThumbnails.swift */; };
+		FA7955922C1E0D1B0068337E /* EventDescriptionSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7955912C1E0D1B0068337E /* EventDescriptionSection.swift */; };
+		FA7955942C1E0D460068337E /* EventRSVPShareAttendeesSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7955932C1E0D460068337E /* EventRSVPShareAttendeesSection.swift */; };
+		FA7955962C1E0D5A0068337E /* EventCommentsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7955952C1E0D5A0068337E /* EventCommentsSection.swift */; };
+		FA7955982C1E0D660068337E /* EventAddCommentSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7955972C1E0D660068337E /* EventAddCommentSection.swift */; };
+		FA79559A2C1E0D790068337E /* EventCommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7955992C1E0D790068337E /* EventCommentView.swift */; };
+		FA79559D2C1E47640068337E /* Switzer-Variable.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA79559C2C1E47640068337E /* Switzer-Variable.ttf */; };
 		FA892BFC2B0C78F8006B24B8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA892BFB2B0C78F8006B24B8 /* GoogleService-Info.plist */; };
 		FA892BFF2B0C7BC1006B24B8 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = FA892BFE2B0C7BC1006B24B8 /* FirebaseAnalytics */; };
 		FA892C012B0C7BC1006B24B8 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = FA892C002B0C7BC1006B24B8 /* FirebaseAnalyticsOnDeviceConversion */; };
@@ -225,6 +269,50 @@
 		FA47E89B2B049D770013B67F /* Map1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Map1.swift; sourceTree = "<group>"; };
 		FA47E8A12B0722F50013B67F /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		FA47E8A32B0889C60013B67F /* MapMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapMarker.swift; sourceTree = "<group>"; };
+		FA79553B2C1DD13C0068337E /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		FA79553D2C1DD15A0068337E /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
+		FA79553F2C1DD16F0068337E /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
+		FA7955412C1DD1890068337E /* AlbumViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumViewModel.swift; sourceTree = "<group>"; };
+		FA7955432C1DD19C0068337E /* EventViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewModel.swift; sourceTree = "<group>"; };
+		FA7955452C1DD1AD0068337E /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		FA7955472C1DD1D70068337E /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AuthenticationService.swift; path = RealFrensIOS/ViewModels/AuthenticationService.swift; sourceTree = SOURCE_ROOT; };
+		FA7955492C1DD1EA0068337E /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FirebaseService.swift; path = RealFrensIOS/ViewModels/FirebaseService.swift; sourceTree = SOURCE_ROOT; };
+		FA79554B2C1DD1F90068337E /* MapboxService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MapboxService.swift; path = RealFrensIOS/ViewModels/MapboxService.swift; sourceTree = SOURCE_ROOT; };
+		FA79554D2C1DDB730068337E /* CustomFontModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFontModifier.swift; sourceTree = "<group>"; };
+		FA7955552C1DE37F0068337E /* RoundedCorners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorners.swift; sourceTree = "<group>"; };
+		FA7955572C1DF30B0068337E /* ProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageView.swift; sourceTree = "<group>"; };
+		FA7955592C1DF3290068337E /* BadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeView.swift; sourceTree = "<group>"; };
+		FA79555B2C1DF3950068337E /* CustomGradientBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomGradientBackground.swift; sourceTree = "<group>"; };
+		FA79555D2C1DF3F60068337E /* StatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatView.swift; sourceTree = "<group>"; };
+		FA79555F2C1DF4160068337E /* AlbumInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumInfoView.swift; sourceTree = "<group>"; };
+		FA7955612C1DF7570068337E /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		FA7955642C1DF9640068337E /* MapWrapperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapWrapperView.swift; sourceTree = "<group>"; };
+		FA7955672C1DF9980068337E /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
+		FA7955692C1DF9AE0068337E /* SearchButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchButtonView.swift; sourceTree = "<group>"; };
+		FA79556B2C1DF9C50068337E /* AddPinButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPinButtonView.swift; sourceTree = "<group>"; };
+		FA79556D2C1DF9D70068337E /* ButtonContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonContainerView.swift; sourceTree = "<group>"; };
+		FA79556F2C1DF9EB0068337E /* MapButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapButtonView.swift; sourceTree = "<group>"; };
+		FA7955712C1DFA050068337E /* EventAlertsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventAlertsView.swift; sourceTree = "<group>"; };
+		FA7955732C1DFA1F0068337E /* EventItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventItemView.swift; sourceTree = "<group>"; };
+		FA7955752C1DFA3C0068337E /* EventIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventIndicatorView.swift; sourceTree = "<group>"; };
+		FA7955792C1DFAAF0068337E /* NotificationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationExtension.swift; sourceTree = "<group>"; };
+		FA79557B2C1DFB550068337E /* ButtonsLayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonsLayerView.swift; sourceTree = "<group>"; };
+		FA79557D2C1E04B80068337E /* AlbumTitleSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumTitleSection.swift; sourceTree = "<group>"; };
+		FA79557F2C1E04CF0068337E /* AlbumPhotoCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumPhotoCarousel.swift; sourceTree = "<group>"; };
+		FA7955812C1E04E80068337E /* AlbumPhotoThumbnails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumPhotoThumbnails.swift; sourceTree = "<group>"; };
+		FA7955832C1E04FC0068337E /* AlbumDescriptionSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDescriptionSection.swift; sourceTree = "<group>"; };
+		FA7955852C1E05130068337E /* AlbumCommentsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCommentsSection.swift; sourceTree = "<group>"; };
+		FA7955872C1E05270068337E /* AlbumAddCommentSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumAddCommentSection.swift; sourceTree = "<group>"; };
+		FA7955892C1E05AE0068337E /* AlbumCommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCommentView.swift; sourceTree = "<group>"; };
+		FA79558B2C1E0CD80068337E /* EventTitleSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTitleSection.swift; sourceTree = "<group>"; };
+		FA79558D2C1E0CED0068337E /* EventPhotoCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventPhotoCarousel.swift; sourceTree = "<group>"; };
+		FA79558F2C1E0D060068337E /* EventPhotoThumbnails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventPhotoThumbnails.swift; sourceTree = "<group>"; };
+		FA7955912C1E0D1B0068337E /* EventDescriptionSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDescriptionSection.swift; sourceTree = "<group>"; };
+		FA7955932C1E0D460068337E /* EventRSVPShareAttendeesSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventRSVPShareAttendeesSection.swift; sourceTree = "<group>"; };
+		FA7955952C1E0D5A0068337E /* EventCommentsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCommentsSection.swift; sourceTree = "<group>"; };
+		FA7955972C1E0D660068337E /* EventAddCommentSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventAddCommentSection.swift; sourceTree = "<group>"; };
+		FA7955992C1E0D790068337E /* EventCommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCommentView.swift; sourceTree = "<group>"; };
+		FA79559C2C1E47640068337E /* Switzer-Variable.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Switzer-Variable.ttf"; sourceTree = "<group>"; };
 		FA892BFB2B0C78F8006B24B8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FA892C2A2B0C7D09006B24B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA924DCF2BAF6AE700674CA9 /* Inter-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Black.otf"; sourceTree = "<group>"; };
@@ -343,7 +431,7 @@
 		FA924E452BAF6AE700674CA9 /* InterVariable-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "InterVariable-Italic.ttf"; sourceTree = "<group>"; };
 		FA924E462BAF6AE700674CA9 /* InterVariable.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = InterVariable.ttf; sourceTree = "<group>"; };
 		FA924E472BAF6AE700674CA9 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
-		FACB85412BD5BB4700C9F5E0 /* AlbumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumView.swift; sourceTree = "<group>"; };
+		FACB85412BD5BB4700C9F5E0 /* AlbumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AlbumView.swift; path = RealFrensIOS/Views/Album/AlbumView.swift; sourceTree = SOURCE_ROOT; };
 		FAD302C22B0E01770032F966 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		FADF8D0E2BA38C15004D7488 /* Map2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Map2.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -399,7 +487,13 @@
 		FA1FE5AF2B4046CB00AE2C00 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				FA79559E2C1E50460068337E /* Fonts */,
+				FA47E7F72B046D550013B67F /* Assets.xcassets */,
 				FA1FE5B02B40482500AE2C00 /* RFTextFieldModifier.swift */,
+				FA79554D2C1DDB730068337E /* CustomFontModifier.swift */,
+				FA7955552C1DE37F0068337E /* RoundedCorners.swift */,
+				FA79555B2C1DF3950068337E /* CustomGradientBackground.swift */,
+				FA7955612C1DF7570068337E /* ColorExtension.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -432,12 +526,10 @@
 				FA47E81E2B04733C0013B67F /* App */,
 				FA47E81F2B0473430013B67F /* Core */,
 				FA47E8202B04734C0013B67F /* Extensions */,
-				FA47E8212B0473580013B67F /* Model */,
+				FA7955392C1DCB3D0068337E /* Views */,
+				FA47E8212B0473580013B67F /* Models */,
+				FA79553A2C1DCFDF0068337E /* ViewModels */,
 				FA47E8222B0473660013B67F /* Services */,
-				FA1FE5BE2B42AE8200AE2C00 /* MainView.swift */,
-				FA1FE5C02B42B39400AE2C00 /* ParentView.swift */,
-				FA47E7F72B046D550013B67F /* Assets.xcassets */,
-				FA924E482BAF6AE700674CA9 /* Inter */,
 				FA47E7F92B046D550013B67F /* Preview Content */,
 			);
 			path = RealFrensIOS;
@@ -482,11 +574,8 @@
 			children = (
 				FA47E8262B0474B80013B67F /* Root */,
 				FA47E8272B0475160013B67F /* UploadImage */,
-				FA47E8232B0474670013B67F /* Authentication */,
 				FA1FE5AF2B4046CB00AE2C00 /* Components */,
 				FA47E8252B04748B0013B67F /* Map */,
-				FA47E8282B0476750013B67F /* Navigation */,
-				FA47E8242B04747D0013B67F /* Profile */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -498,7 +587,7 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		FA47E8212B0473580013B67F /* Model */ = {
+		FA47E8212B0473580013B67F /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				FAD302C22B0E01770032F966 /* User.swift */,
@@ -507,12 +596,15 @@
 				FA45D0612C08C22A006E64E3 /* BadgeInfo.swift */,
 				FA45D0632C08D99D006E64E3 /* Event.swift */,
 			);
-			path = Model;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		FA47E8222B0473660013B67F /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				FA7955472C1DD1D70068337E /* AuthenticationService.swift */,
+				FA7955492C1DD1EA0068337E /* FirebaseService.swift */,
+				FA79554B2C1DD1F90068337E /* MapboxService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -534,8 +626,10 @@
 			isa = PBXGroup;
 			children = (
 				FA47E82B2B0478460013B67F /* ProfileView.swift */,
-				FACB85412BD5BB4700C9F5E0 /* AlbumView.swift */,
-				FA45D0582C064CDD006E64E3 /* EventView.swift */,
+				FA7955572C1DF30B0068337E /* ProfileImageView.swift */,
+				FA7955592C1DF3290068337E /* BadgeView.swift */,
+				FA79555D2C1DF3F60068337E /* StatView.swift */,
+				FA79555F2C1DF4160068337E /* AlbumInfoView.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -543,7 +637,6 @@
 		FA47E8252B04748B0013B67F /* Map */ = {
 			isa = PBXGroup;
 			children = (
-				FA47E7F52B046D530013B67F /* ContentView.swift */,
 				FA47E89B2B049D770013B67F /* Map1.swift */,
 				FADF8D0E2BA38C15004D7488 /* Map2.swift */,
 				FA47E8A32B0889C60013B67F /* MapMarker.swift */,
@@ -571,6 +664,93 @@
 				FA47E8A12B0722F50013B67F /* TabBarView.swift */,
 			);
 			path = Navigation;
+			sourceTree = "<group>";
+		};
+		FA7955392C1DCB3D0068337E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FA1FE5BE2B42AE8200AE2C00 /* MainView.swift */,
+				FA1FE5C02B42B39400AE2C00 /* ParentView.swift */,
+				FA7955632C1DF80C0068337E /* Map */,
+				FA47E8232B0474670013B67F /* Authentication */,
+				FA47E8282B0476750013B67F /* Navigation */,
+				FA79554F2C1DDF190068337E /* Album */,
+				FA7955502C1DDF2B0068337E /* Event */,
+				FA47E8242B04747D0013B67F /* Profile */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		FA79553A2C1DCFDF0068337E /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				FA79553B2C1DD13C0068337E /* LoginViewModel.swift */,
+				FA79553D2C1DD15A0068337E /* RegistrationViewModel.swift */,
+				FA79553F2C1DD16F0068337E /* ContentViewModel.swift */,
+				FA7955412C1DD1890068337E /* AlbumViewModel.swift */,
+				FA7955432C1DD19C0068337E /* EventViewModel.swift */,
+				FA7955452C1DD1AD0068337E /* ProfileViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		FA79554F2C1DDF190068337E /* Album */ = {
+			isa = PBXGroup;
+			children = (
+				FACB85412BD5BB4700C9F5E0 /* AlbumView.swift */,
+				FA79557D2C1E04B80068337E /* AlbumTitleSection.swift */,
+				FA79557F2C1E04CF0068337E /* AlbumPhotoCarousel.swift */,
+				FA7955812C1E04E80068337E /* AlbumPhotoThumbnails.swift */,
+				FA7955832C1E04FC0068337E /* AlbumDescriptionSection.swift */,
+				FA7955852C1E05130068337E /* AlbumCommentsSection.swift */,
+				FA7955872C1E05270068337E /* AlbumAddCommentSection.swift */,
+				FA7955892C1E05AE0068337E /* AlbumCommentView.swift */,
+			);
+			path = Album;
+			sourceTree = "<group>";
+		};
+		FA7955502C1DDF2B0068337E /* Event */ = {
+			isa = PBXGroup;
+			children = (
+				FA45D0582C064CDD006E64E3 /* EventView.swift */,
+				FA79558B2C1E0CD80068337E /* EventTitleSection.swift */,
+				FA79558D2C1E0CED0068337E /* EventPhotoCarousel.swift */,
+				FA79558F2C1E0D060068337E /* EventPhotoThumbnails.swift */,
+				FA7955912C1E0D1B0068337E /* EventDescriptionSection.swift */,
+				FA7955932C1E0D460068337E /* EventRSVPShareAttendeesSection.swift */,
+				FA7955952C1E0D5A0068337E /* EventCommentsSection.swift */,
+				FA7955972C1E0D660068337E /* EventAddCommentSection.swift */,
+				FA7955992C1E0D790068337E /* EventCommentView.swift */,
+			);
+			path = Event;
+			sourceTree = "<group>";
+		};
+		FA7955632C1DF80C0068337E /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				FA47E7F52B046D530013B67F /* ContentView.swift */,
+				FA7955642C1DF9640068337E /* MapWrapperView.swift */,
+				FA7955672C1DF9980068337E /* SearchBarView.swift */,
+				FA7955692C1DF9AE0068337E /* SearchButtonView.swift */,
+				FA79556B2C1DF9C50068337E /* AddPinButtonView.swift */,
+				FA79556D2C1DF9D70068337E /* ButtonContainerView.swift */,
+				FA79556F2C1DF9EB0068337E /* MapButtonView.swift */,
+				FA7955712C1DFA050068337E /* EventAlertsView.swift */,
+				FA7955732C1DFA1F0068337E /* EventItemView.swift */,
+				FA7955752C1DFA3C0068337E /* EventIndicatorView.swift */,
+				FA7955792C1DFAAF0068337E /* NotificationExtension.swift */,
+				FA79557B2C1DFB550068337E /* ButtonsLayerView.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		FA79559E2C1E50460068337E /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				FA79559C2C1E47640068337E /* Switzer-Variable.ttf */,
+				FA924E482BAF6AE700674CA9 /* Inter */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		FA924DF32BAF6AE700674CA9 /* otf */ = {
@@ -852,6 +1032,7 @@
 			packageReferences = (
 				FA47E82D2B047B720013B67F /* XCRemoteSwiftPackageReference "mapbox-maps-ios" */,
 				FA892BFD2B0C7BC1006B24B8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				FA79559B2C1E3FB60068337E /* XCRemoteSwiftPackageReference "solana-swift" */,
 			);
 			productRefGroup = FA47E7F12B046D530013B67F /* Products */;
 			projectDirPath = "";
@@ -1002,6 +1183,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA79559D2C1E47640068337E /* Switzer-Variable.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1012,29 +1194,72 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA79558C2C1E0CD80068337E /* EventTitleSection.swift in Sources */,
 				FA1FE5B12B40482500AE2C00 /* RFTextFieldModifier.swift in Sources */,
 				FA1FE5B32B404D2B00AE2C00 /* CreateUserNameView.swift in Sources */,
+				FA79556A2C1DF9AE0068337E /* SearchButtonView.swift in Sources */,
+				FA79558A2C1E05AE0068337E /* AlbumCommentView.swift in Sources */,
+				FA79555C2C1DF3960068337E /* CustomGradientBackground.swift in Sources */,
+				FA79554A2C1DD1EA0068337E /* FirebaseService.swift in Sources */,
 				FA47E82C2B0478460013B67F /* ProfileView.swift in Sources */,
 				FA47E7F62B046D530013B67F /* ContentView.swift in Sources */,
+				FA7955602C1DF4160068337E /* AlbumInfoView.swift in Sources */,
+				FA7955862C1E05130068337E /* AlbumCommentsSection.swift in Sources */,
+				FA7955882C1E05270068337E /* AlbumAddCommentSection.swift in Sources */,
+				FA7955722C1DFA050068337E /* EventAlertsView.swift in Sources */,
+				FA7955682C1DF9980068337E /* SearchBarView.swift in Sources */,
+				FA79558E2C1E0CED0068337E /* EventPhotoCarousel.swift in Sources */,
+				FA7955982C1E0D660068337E /* EventAddCommentSection.swift in Sources */,
 				FA1FE5C12B42B39400AE2C00 /* ParentView.swift in Sources */,
+				FA79554C2C1DD1F90068337E /* MapboxService.swift in Sources */,
+				FA7955402C1DD16F0068337E /* ContentViewModel.swift in Sources */,
 				FA47E8A42B0889C60013B67F /* MapMarker.swift in Sources */,
 				FA45A7BB2B36B13A00180F0C /* LoginPageView.swift in Sources */,
+				FA7955822C1E04E80068337E /* AlbumPhotoThumbnails.swift in Sources */,
+				FA79554E2C1DDB730068337E /* CustomFontModifier.swift in Sources */,
 				FA027C292B1D746700CB0E37 /* LoginView.swift in Sources */,
+				FA7955962C1E0D5A0068337E /* EventCommentsSection.swift in Sources */,
 				FA45D0622C08C22A006E64E3 /* BadgeInfo.swift in Sources */,
+				FA79553E2C1DD15A0068337E /* RegistrationViewModel.swift in Sources */,
 				FA1FE5B72B40557100AE2C00 /* CompleteSignupView.swift in Sources */,
 				FA47E89C2B049D770013B67F /* Map1.swift in Sources */,
+				FA7955762C1DFA3C0068337E /* EventIndicatorView.swift in Sources */,
+				FA7955802C1E04CF0068337E /* AlbumPhotoCarousel.swift in Sources */,
 				FAD302C32B0E01770032F966 /* User.swift in Sources */,
 				FA892C2B2B0C7D09006B24B8 /* AppDelegate.swift in Sources */,
+				FA7955902C1E0D060068337E /* EventPhotoThumbnails.swift in Sources */,
+				FA7955702C1DF9EB0068337E /* MapButtonView.swift in Sources */,
+				FA79553C2C1DD13C0068337E /* LoginViewModel.swift in Sources */,
+				FA7955842C1E04FC0068337E /* AlbumDescriptionSection.swift in Sources */,
+				FA7955922C1E0D1B0068337E /* EventDescriptionSection.swift in Sources */,
+				FA7955622C1DF7570068337E /* ColorExtension.swift in Sources */,
+				FA7955742C1DFA1F0068337E /* EventItemView.swift in Sources */,
+				FA7955442C1DD19C0068337E /* EventViewModel.swift in Sources */,
+				FA79557A2C1DFAAF0068337E /* NotificationExtension.swift in Sources */,
+				FA79557C2C1DFB550068337E /* ButtonsLayerView.swift in Sources */,
 				FA1FE5BF2B42AE8200AE2C00 /* MainView.swift in Sources */,
+				FA7955942C1E0D460068337E /* EventRSVPShareAttendeesSection.swift in Sources */,
 				FA1FE5AE2B4040C700AE2C00 /* AddEmailView.swift in Sources */,
+				FA79555A2C1DF3290068337E /* BadgeView.swift in Sources */,
+				FA79559A2C1E0D790068337E /* EventCommentView.swift in Sources */,
 				FADF8D0F2BA38C15004D7488 /* Map2.swift in Sources */,
 				FA45D0642C08D99D006E64E3 /* Event.swift in Sources */,
+				FA7955582C1DF30B0068337E /* ProfileImageView.swift in Sources */,
 				FA45D0592C064CDD006E64E3 /* EventView.swift in Sources */,
+				FA7955562C1DE37F0068337E /* RoundedCorners.swift in Sources */,
 				FA47E7F42B046D530013B67F /* RealFrensIOSApp.swift in Sources */,
+				FA79557E2C1E04B80068337E /* AlbumTitleSection.swift in Sources */,
 				FA47E8A22B0722F50013B67F /* TabBarView.swift in Sources */,
+				FA79555E2C1DF3F60068337E /* StatView.swift in Sources */,
+				FA7955462C1DD1AD0068337E /* ProfileViewModel.swift in Sources */,
+				FA7955482C1DD1D70068337E /* AuthenticationService.swift in Sources */,
+				FA79556E2C1DF9D70068337E /* ButtonContainerView.swift in Sources */,
 				FA1FE5B52B4053F100AE2C00 /* CreatePassView.swift in Sources */,
+				FA7955422C1DD1890068337E /* AlbumViewModel.swift in Sources */,
 				FA45D05E2C08BAD3006E64E3 /* Album.swift in Sources */,
+				FA7955652C1DF9640068337E /* MapWrapperView.swift in Sources */,
 				FACB85422BD5BB4700C9F5E0 /* AlbumView.swift in Sources */,
+				FA79556C2C1DF9C50068337E /* AddPinButtonView.swift in Sources */,
 				FA1FE5BD2B429AB800AE2C00 /* Pins.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1381,6 +1606,14 @@
 			requirement = {
 				branch = main;
 				kind = branch;
+			};
+		};
+		FA79559B2C1E3FB60068337E /* XCRemoteSwiftPackageReference "solana-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/p2p-org/solana-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
 			};
 		};
 		FA892BFD2B0C7BC1006B24B8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
