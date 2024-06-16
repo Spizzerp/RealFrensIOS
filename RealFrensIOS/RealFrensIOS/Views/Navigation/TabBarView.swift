@@ -5,7 +5,7 @@ import SwiftUI
 struct TabBarView: View {
     var onProfileSelected: () -> Void
     var onContentSelected: () -> Void
-    
+
     var body: some View {
         ZStack {
             VStack {

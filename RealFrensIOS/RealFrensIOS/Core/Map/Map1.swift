@@ -80,7 +80,10 @@ class Map1: UIViewController, CLLocationManagerDelegate {
     func presentAlbumView(for identifier: String) {
         guard let annotationData = annotationsDictionary[identifier] else { return }
         let album = annotationData.album
-        let albumView = AlbumView(album: album)
+        let albumView = AlbumView(album: album) {
+            // Callback to handle onDismiss, if needed
+            print("Album view dismissed")
+        }
         let hostingController = UIHostingController(rootView: albumView)
         hostingController.modalPresentationStyle = .fullScreen
         present(hostingController, animated: true, completion: nil)

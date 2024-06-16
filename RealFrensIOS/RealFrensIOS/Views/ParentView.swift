@@ -3,23 +3,58 @@ import SwiftUI
 // MARK: - Parent View
 /// ParentView manages the display of content and profile views with a tab bar.
 struct ParentView: View {
-    @State private var selectedTab: Int = 0
+    @State private var selectedTab: Tab = .content
 
     // MARK: - Body
     var body: some View {
-        VStack {
+        ZStack {
             // Content based on selected tab
-            if selectedTab == 0 {
+            switch selectedTab {
+            case .content:
                 ContentView()
-            } else if selectedTab == 1 {
-                ProfileView()
+            case .profile:
+                ProfileView {
+                    selectedTab = .content
+                }
+            case .album(let album):
+                AlbumView(album: album) {
+                    selectedTab = .content
+                }
+            case .event(let event):
+                EventView(event: event) {
+                    selectedTab = .content
+                }
             }
-
+            
             // Tab bar for navigation
-            TabBarView(
-                onProfileSelected: { selectedTab = 1 },
-                onContentSelected: { selectedTab = 0 }
-            )
+            VStack {
+                Spacer()
+                TabBarView(
+                    onProfileSelected: {
+                        selectedTab = .profile
+                    },
+                    onContentSelected: {
+                        selectedTab = .content
+                    }
+                )
+                .padding(.bottom, 20)
+                .background(Color.clear)
+            }
+            .edgesIgnoringSafeArea(.bottom)
         }
+    }
+    
+    // MARK: - Tab Enum
+    enum Tab {
+        case content, profile
+        case album(Album)
+        case event(Event)
+    }
+}
+
+// MARK: - Preview Provider
+struct ParentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ParentView()
     }
 }

@@ -132,7 +132,10 @@ class Map2: UIViewController, CLLocationManagerDelegate {
     }
 
     private func presentEventView(event: Event) {
-        let eventView = EventView(event: event)
+        let eventView = EventView(event: event) {
+            // Callback to handle onDismiss, if needed
+            print("Event view dismissed")
+        }
         let hostingController = UIHostingController(rootView: eventView)
         hostingController.modalPresentationStyle = .fullScreen
         present(hostingController, animated: true, completion: nil)

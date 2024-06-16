@@ -1,40 +1,86 @@
 import SwiftUI
 
 // MARK: - Profile View
-/// ProfileView displays the user's profile information, including stats, badges, and albums.
 struct ProfileView: View {
     @StateObject private var viewModel = ProfileViewModel()
-    
-    // MARK: - Body
+    var onDismiss: () -> Void
+
+    init(onDismiss: @escaping () -> Void) {
+        self.onDismiss = onDismiss
+    }
+
     var body: some View {
         NavigationView {
             ZStack {
-                CustomGradientBackground()
+                BackgroundView()
                 
                 ScrollView(.vertical, showsIndicators: false) {
                     VStack {
-                        ProfileImageView(imageURL: viewModel.user?.profileImageURL)
-                        statIndicatorSection
-                        usernameDescriptionSection
-                        customDivider
-                        badgeRow
-                        customDivider
-                        albumRow
+                        ProfileImageSection(viewModel: viewModel)
+                        StatIndicatorSection(viewModel: viewModel)
+                        UsernameDescriptionSection(viewModel: viewModel)
+                        CustomDivider()
+                        BadgeRow(viewModel: viewModel)
+                        CustomDivider()
+                        AlbumRow(viewModel: viewModel)
                     }
                     .padding(.top, UIScreen.main.bounds.height * 0.02)
                 }
-                
-                hamburgerMenuButton
-                
+
+                HamburgerMenuButton()
+
                 if viewModel.showingPopup {
-                    badgePopupView
+                    BadgePopupView(viewModel: viewModel)
                 }
             }
         }
     }
-    
-    // MARK: - Stat Indicator Section
-    private var statIndicatorSection: some View {
+}
+
+// MARK: - Background View
+private struct BackgroundView: View {
+    var body: some View {
+        ZStack {
+            Color.black.edgesIgnoringSafeArea(.all)
+            LinearGradient(gradient: Gradient(colors: [Color.gray, Color.clear]), startPoint: .bottom, endPoint: .center)
+                .edgesIgnoringSafeArea(.all)
+                .opacity(0.5)
+            LinearGradient(gradient: Gradient(colors: [Color.white, Color.clear]), startPoint: .top, endPoint: .center)
+                .edgesIgnoringSafeArea(.all)
+                .opacity(0.5)
+        }
+    }
+}
+
+// MARK: - Profile Image Section
+private struct ProfileImageSection: View {
+    @ObservedObject var viewModel: ProfileViewModel
+
+    var body: some View {
+        Group {
+            if let profileImageURL = viewModel.user?.profileImageURL {
+                Image(profileImageURL)
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 180, height: 180)
+                    .clipShape(Circle())
+                    .overlay(Circle().stroke(Color.white.opacity(1), lineWidth: 3))
+            } else {
+                Circle()
+                    .fill(Color.gray)
+                    .frame(width: 180, height: 180)
+                    .overlay(Circle().stroke(Color.white.opacity(1), lineWidth: 3))
+            }
+        }
+        .padding(.top, 0)
+    }
+}
+
+// MARK: - Stat Indicator Section
+private struct StatIndicatorSection: View {
+    @ObservedObject var viewModel: ProfileViewModel
+
+    var body: some View {
         HStack(spacing: 35) {
             StatView(count: "\(viewModel.frensCount)", label: "Frens", countColor: Color(hex: "9F85FF"))
             StatView(count: "\(viewModel.pinsCount)", label: "Pins", countColor: Color(hex: "9F85FF"))
@@ -42,47 +88,62 @@ struct ProfileView: View {
         }
         .padding(.vertical, 25)
     }
-    
-    // MARK: - Username and Description Section
-    private var usernameDescriptionSection: some View {
+}
+
+// MARK: - Username and Description Section
+private struct UsernameDescriptionSection: View {
+    @ObservedObject var viewModel: ProfileViewModel
+
+    var body: some View {
         VStack(spacing: 10) {
             HStack(spacing: 10) {
                 Text(viewModel.user?.username ?? "")
-                    .customFont(size: 20, weight: .bold)
+                    .font(.custom("Inter", size: 20))
+                    .fontWeight(.bold)
                     .foregroundColor(Color(red: 159/255, green: 133/255, blue: 255/255))
-                
-                Button(action: {
-                    // Add the action you want to perform when the button is tapped
-                }) {
-                    HStack {
-                        Image("Tipicon")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 16, height: 16)
-                            .foregroundColor(.white)
-                        
-                        Text("TIP")
-                            .customFont(size: 16, weight: .semibold)
-                            .foregroundColor(.white)
-                    }
-                    .padding(.vertical, 5)
-                    .padding(.horizontal, 10)
-                    .background(Color(hex: "9F85FF"))
-                    .cornerRadius(6)
-                }
+
+                TipButton()
             }
-            
+
             Text(viewModel.user?.bio ?? "")
-                .customFont(size: 16)
+                .font(.custom("Inter", size: 16))
                 .foregroundColor(.white)
                 .multilineTextAlignment(.center)
         }
         .frame(maxWidth: .infinity)
         .padding(.horizontal)
     }
-    
-    // MARK: - Custom Divider
-    private var customDivider: some View {
+}
+
+// MARK: - Tip Button
+private struct TipButton: View {
+    var body: some View {
+        Button(action: {
+            // Add the action you want to perform when the button is tapped
+        }) {
+            HStack {
+                Image("Tipicon")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 16, height: 16)
+                    .foregroundColor(.white)
+
+                Text("TIP")
+                    .font(.custom("Inter", size: 16))
+                    .fontWeight(.semibold)
+                    .foregroundColor(.white)
+            }
+            .padding(.vertical, 5)
+            .padding(.horizontal, 10)
+            .background(Color(hex: "9F85FF"))
+            .cornerRadius(6)
+        }
+    }
+}
+
+// MARK: - Custom Divider
+private struct CustomDivider: View {
+    var body: some View {
         Image("Divider")
             .resizable()
             .scaledToFit()
@@ -90,17 +151,26 @@ struct ProfileView: View {
             .padding(.horizontal)
             .padding(.vertical, 1)
     }
-    
-    // MARK: - Badge Row
-    private var badgeRow: some View {
+}
+
+// MARK: - Badge Row
+private struct BadgeRow: View {
+    @ObservedObject var viewModel: ProfileViewModel
+
+    var body: some View {
         HStack {
             Spacer()
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 15) {
                     ForEach(viewModel.badges) { badge in
-                        BadgeView(badge: badge) {
-                            viewModel.selectBadge(badge: badge)
-                        }
+                        Image(badge.imageName)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 50, height: 50)
+                            .shadow(radius: 3)
+                            .onTapGesture {
+                                viewModel.selectBadge(badge: badge)
+                            }
                     }
                 }
                 .padding(.horizontal)
@@ -109,49 +179,66 @@ struct ProfileView: View {
         }
         .padding(.bottom, 0)
     }
-    
-    // MARK: - Album Row
-    private var albumRow: some View {
+}
+
+// MARK: - Album Row
+private struct AlbumRow: View {
+    @ObservedObject var viewModel: ProfileViewModel
+
+    var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 30) {
                 ForEach(viewModel.albums) { album in
-                    NavigationLink(destination: AlbumView(album: album)) {
-                        ZStack(alignment: .bottomLeading) {
-                            Image(album.coverImage)
-                                .resizable()
-                                .scaledToFill()
-                                .frame(width: 250, height: 150)
-                                .clipShape(RoundedRectangle(cornerRadius: 10))
-                                .shadow(radius: 5)
-                                .padding(.vertical, 22)
-                            
-                            VStack {
-                                Spacer()
-                                    .frame(maxHeight: 10)
-                                
-                                HStack {
-                                    AlbumInfoView(icon: "photo", count: album.images.count)
-                                    Spacer()
-                                    AlbumInfoView(icon: "heart", count: 100)
-                                    Spacer()
-                                    AlbumInfoView(icon: "bubble.left", count: 20)
-                                }
-                                .padding(.horizontal, 20)
-                                .padding(.bottom, 10)
-                            }
-                            .background(
-                                RoundedCorners(color: Color(hex: "181818"), tl: 0, tr: 0, bl: 10, br: 10)
-                            )
-                        }
+                    NavigationLink(destination: AlbumView(album: album, onDismiss: {
+                        print("Navigating back from Album to Profile")
+                    })) {
+                        AlbumItemView(album: album)
                     }
                 }
             }
             .padding(.horizontal)
         }
     }
-    
-    // MARK: - Hamburger Menu Button
-    private var hamburgerMenuButton: some View {
+}
+
+// MARK: - Album Item View
+private struct AlbumItemView: View {
+    var album: Album
+
+    var body: some View {
+        ZStack(alignment: .bottomLeading) {
+            Image(album.coverImage)
+                .resizable()
+                .scaledToFill()
+                .frame(width: 250, height: 150)
+                .clipShape(RoundedRectangle(cornerRadius: 10))
+                .shadow(radius: 5)
+                .padding(.vertical, 22)
+
+            VStack {
+                Spacer()
+                    .frame(maxHeight: 10)
+
+                HStack {
+                    AlbumInfoView(icon: "photo", count: album.images.count)
+                    Spacer()
+                    AlbumInfoView(icon: "heart", count: 100)
+                    Spacer()
+                    AlbumInfoView(icon: "bubble.left", count: 20)
+                }
+                .padding(.horizontal, 20)
+                .padding(.bottom, 10)
+            }
+            .background(
+                RoundedCorners(color: Color(hex: "181818"), tl: 0, tr: 0, bl: 10, br: 10)
+            )
+        }
+    }
+}
+
+// MARK: - Hamburger Menu Button
+private struct HamburgerMenuButton: View {
+    var body: some View {
         VStack {
             HStack {
                 Spacer()
@@ -178,27 +265,32 @@ struct ProfileView: View {
             Spacer()
         }
     }
-    
-    // MARK: - Badge Popup View
-    private var badgePopupView: some View {
+}
+
+// MARK: - Badge Popup View
+private struct BadgePopupView: View {
+    @ObservedObject var viewModel: ProfileViewModel
+
+    var body: some View {
         ZStack {
             VStack(alignment: .center, spacing: 10) {
                 Text(viewModel.selectedBadgeInfo?.title ?? "")
-                    .customFont(size: 18, weight: .bold)
+                    .font(.custom("Inter", size: 18))
+                    .fontWeight(.bold)
                     .padding()
-                
+
                 Text(viewModel.selectedBadgeInfo?.description ?? "")
-                    .customFont(size: 16)
-                
+                    .font(.custom("Inter", size: 16))
+
                 Text("Acquired: \(viewModel.selectedBadgeInfo?.dateAcquired ?? "")")
-                    .customFont(size: 14)
+                    .font(.custom("Inter", size: 14))
                     .padding(.bottom)
             }
             .frame(width: 300, height: 200)
             .background(Color.white)
             .cornerRadius(20)
             .shadow(radius: 10)
-            
+
             VStack {
                 HStack {
                     Spacer()
@@ -220,6 +312,6 @@ struct ProfileView: View {
 // MARK: - Preview Provider
 struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileView()
+        ProfileView(onDismiss: {})
     }
 }

@@ -4,30 +4,36 @@ import SwiftUI
 /// MainView manages the different tabs of the application, including content, profile, album, and event views.
 struct MainView: View {
     @State private var currentTab: Tab = .content
-    
+
     // MARK: - Body
     var body: some View {
         ZStack {
+            // Content based on current tab
             switch currentTab {
             case .content:
                 ContentView()
             case .profile:
-                ProfileView()
+                ProfileView {
+                    currentTab = .content
+                }
             case .album(let album):
-                AlbumView(album: album)
+                AlbumView(album: album) {
+                    currentTab = .content
+                }
             case .event(let event):
-                EventView(event: event)
+                EventView(event: event) {
+                    currentTab = .content
+                }
             }
-            
+
+            // Tab bar for navigation
             VStack {
                 Spacer()
                 TabBarView(
                     onProfileSelected: {
-                        print("Profile Selected")
                         currentTab = .profile
                     },
                     onContentSelected: {
-                        print("Content Selected")
                         currentTab = .content
                     }
                 )
@@ -37,7 +43,7 @@ struct MainView: View {
             .edgesIgnoringSafeArea(.bottom)
         }
     }
-    
+
     // MARK: - Tab Enum
     enum Tab {
         case content, profile
