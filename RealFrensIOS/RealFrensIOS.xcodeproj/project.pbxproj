@@ -48,7 +48,6 @@
 		FA79555A2C1DF3290068337E /* BadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7955592C1DF3290068337E /* BadgeView.swift */; };
 		FA79555C2C1DF3960068337E /* CustomGradientBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA79555B2C1DF3950068337E /* CustomGradientBackground.swift */; };
 		FA79555E2C1DF3F60068337E /* StatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA79555D2C1DF3F60068337E /* StatView.swift */; };
-		FA7955602C1DF4160068337E /* AlbumInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA79555F2C1DF4160068337E /* AlbumInfoView.swift */; };
 		FA7955622C1DF7570068337E /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7955612C1DF7570068337E /* ColorExtension.swift */; };
 		FA7955652C1DF9640068337E /* MapWrapperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7955642C1DF9640068337E /* MapWrapperView.swift */; };
 		FA7955682C1DF9980068337E /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7955672C1DF9980068337E /* SearchBarView.swift */; };
@@ -220,6 +219,14 @@
 		FACB85422BD5BB4700C9F5E0 /* AlbumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB85412BD5BB4700C9F5E0 /* AlbumView.swift */; };
 		FAD302C32B0E01770032F966 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD302C22B0E01770032F966 /* User.swift */; };
 		FADF8D0F2BA38C15004D7488 /* Map2.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADF8D0E2BA38C15004D7488 /* Map2.swift */; };
+		FAFF762E2C2593D600F095F0 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF762D2C2593D600F095F0 /* BackgroundView.swift */; };
+		FAFF76382C25947B00F095F0 /* CustomDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF76372C25947B00F095F0 /* CustomDivider.swift */; };
+		FAFF763A2C25949400F095F0 /* BadgeSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF76392C25949400F095F0 /* BadgeSection.swift */; };
+		FAFF763C2C2594B000F095F0 /* AlbumSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF763B2C2594AF00F095F0 /* AlbumSection.swift */; };
+		FAFF763E2C2594D300F095F0 /* HamburgerMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF763D2C2594D300F095F0 /* HamburgerMenuButton.swift */; };
+		FAFF76402C2594F000F095F0 /* BadgePopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF763F2C2594F000F095F0 /* BadgePopupView.swift */; };
+		FAFF76462C25990400F095F0 /* UserInfoSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF76452C25990400F095F0 /* UserInfoSection.swift */; };
+		FAFF76482C259A1900F095F0 /* ProfileAlbumItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF76472C259A1900F095F0 /* ProfileAlbumItemView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -284,7 +291,6 @@
 		FA7955592C1DF3290068337E /* BadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeView.swift; sourceTree = "<group>"; };
 		FA79555B2C1DF3950068337E /* CustomGradientBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomGradientBackground.swift; sourceTree = "<group>"; };
 		FA79555D2C1DF3F60068337E /* StatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatView.swift; sourceTree = "<group>"; };
-		FA79555F2C1DF4160068337E /* AlbumInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumInfoView.swift; sourceTree = "<group>"; };
 		FA7955612C1DF7570068337E /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		FA7955642C1DF9640068337E /* MapWrapperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapWrapperView.swift; sourceTree = "<group>"; };
 		FA7955672C1DF9980068337E /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
@@ -434,6 +440,14 @@
 		FACB85412BD5BB4700C9F5E0 /* AlbumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AlbumView.swift; path = RealFrensIOS/Views/Album/AlbumView.swift; sourceTree = SOURCE_ROOT; };
 		FAD302C22B0E01770032F966 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		FADF8D0E2BA38C15004D7488 /* Map2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Map2.swift; sourceTree = "<group>"; };
+		FAFF762D2C2593D600F095F0 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
+		FAFF76372C25947B00F095F0 /* CustomDivider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDivider.swift; sourceTree = "<group>"; };
+		FAFF76392C25949400F095F0 /* BadgeSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeSection.swift; sourceTree = "<group>"; };
+		FAFF763B2C2594AF00F095F0 /* AlbumSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumSection.swift; sourceTree = "<group>"; };
+		FAFF763D2C2594D300F095F0 /* HamburgerMenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HamburgerMenuButton.swift; sourceTree = "<group>"; };
+		FAFF763F2C2594F000F095F0 /* BadgePopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgePopupView.swift; sourceTree = "<group>"; };
+		FAFF76452C25990400F095F0 /* UserInfoSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoSection.swift; sourceTree = "<group>"; };
+		FAFF76472C259A1900F095F0 /* ProfileAlbumItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAlbumItemView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -629,7 +643,14 @@
 				FA7955572C1DF30B0068337E /* ProfileImageView.swift */,
 				FA7955592C1DF3290068337E /* BadgeView.swift */,
 				FA79555D2C1DF3F60068337E /* StatView.swift */,
-				FA79555F2C1DF4160068337E /* AlbumInfoView.swift */,
+				FAFF762D2C2593D600F095F0 /* BackgroundView.swift */,
+				FAFF76372C25947B00F095F0 /* CustomDivider.swift */,
+				FAFF76392C25949400F095F0 /* BadgeSection.swift */,
+				FAFF763B2C2594AF00F095F0 /* AlbumSection.swift */,
+				FAFF763D2C2594D300F095F0 /* HamburgerMenuButton.swift */,
+				FAFF763F2C2594F000F095F0 /* BadgePopupView.swift */,
+				FAFF76452C25990400F095F0 /* UserInfoSection.swift */,
+				FAFF76472C259A1900F095F0 /* ProfileAlbumItemView.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -1201,9 +1222,10 @@
 				FA79558A2C1E05AE0068337E /* AlbumCommentView.swift in Sources */,
 				FA79555C2C1DF3960068337E /* CustomGradientBackground.swift in Sources */,
 				FA79554A2C1DD1EA0068337E /* FirebaseService.swift in Sources */,
+				FAFF76482C259A1900F095F0 /* ProfileAlbumItemView.swift in Sources */,
+				FAFF76402C2594F000F095F0 /* BadgePopupView.swift in Sources */,
 				FA47E82C2B0478460013B67F /* ProfileView.swift in Sources */,
 				FA47E7F62B046D530013B67F /* ContentView.swift in Sources */,
-				FA7955602C1DF4160068337E /* AlbumInfoView.swift in Sources */,
 				FA7955862C1E05130068337E /* AlbumCommentsSection.swift in Sources */,
 				FA7955882C1E05270068337E /* AlbumAddCommentSection.swift in Sources */,
 				FA7955722C1DFA050068337E /* EventAlertsView.swift in Sources */,
@@ -1214,7 +1236,9 @@
 				FA79554C2C1DD1F90068337E /* MapboxService.swift in Sources */,
 				FA7955402C1DD16F0068337E /* ContentViewModel.swift in Sources */,
 				FA47E8A42B0889C60013B67F /* MapMarker.swift in Sources */,
+				FAFF76382C25947B00F095F0 /* CustomDivider.swift in Sources */,
 				FA45A7BB2B36B13A00180F0C /* LoginPageView.swift in Sources */,
+				FAFF76462C25990400F095F0 /* UserInfoSection.swift in Sources */,
 				FA7955822C1E04E80068337E /* AlbumPhotoThumbnails.swift in Sources */,
 				FA79554E2C1DDB730068337E /* CustomFontModifier.swift in Sources */,
 				FA027C292B1D746700CB0E37 /* LoginView.swift in Sources */,
@@ -1232,6 +1256,7 @@
 				FA79553C2C1DD13C0068337E /* LoginViewModel.swift in Sources */,
 				FA7955842C1E04FC0068337E /* AlbumDescriptionSection.swift in Sources */,
 				FA7955922C1E0D1B0068337E /* EventDescriptionSection.swift in Sources */,
+				FAFF763C2C2594B000F095F0 /* AlbumSection.swift in Sources */,
 				FA7955622C1DF7570068337E /* ColorExtension.swift in Sources */,
 				FA7955742C1DFA1F0068337E /* EventItemView.swift in Sources */,
 				FA7955442C1DD19C0068337E /* EventViewModel.swift in Sources */,
@@ -1250,8 +1275,11 @@
 				FA47E7F42B046D530013B67F /* RealFrensIOSApp.swift in Sources */,
 				FA79557E2C1E04B80068337E /* AlbumTitleSection.swift in Sources */,
 				FA47E8A22B0722F50013B67F /* TabBarView.swift in Sources */,
+				FAFF763E2C2594D300F095F0 /* HamburgerMenuButton.swift in Sources */,
+				FAFF763A2C25949400F095F0 /* BadgeSection.swift in Sources */,
 				FA79555E2C1DF3F60068337E /* StatView.swift in Sources */,
 				FA7955462C1DD1AD0068337E /* ProfileViewModel.swift in Sources */,
+				FAFF762E2C2593D600F095F0 /* BackgroundView.swift in Sources */,
 				FA7955482C1DD1D70068337E /* AuthenticationService.swift in Sources */,
 				FA79556E2C1DF9D70068337E /* ButtonContainerView.swift in Sources */,
 				FA1FE5B52B4053F100AE2C00 /* CreatePassView.swift in Sources */,

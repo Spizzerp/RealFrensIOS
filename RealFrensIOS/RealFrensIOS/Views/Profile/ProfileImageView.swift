@@ -1,5 +1,6 @@
 import SwiftUI
 
+/// Displays the user's profile image or a placeholder.
 struct ProfileImageView: View {
     let imageURL: String?
     

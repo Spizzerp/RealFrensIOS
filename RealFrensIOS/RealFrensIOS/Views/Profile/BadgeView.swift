@@ -1,5 +1,6 @@
 import SwiftUI
 
+/// Displays a single badge with tap functionality.
 struct BadgeView: View {
     let badge: BadgeInfo
     let onTap: () -> Void
