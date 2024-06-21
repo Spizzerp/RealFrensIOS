@@ -227,6 +227,8 @@
 		FAFF76402C2594F000F095F0 /* BadgePopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF763F2C2594F000F095F0 /* BadgePopupView.swift */; };
 		FAFF76462C25990400F095F0 /* UserInfoSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF76452C25990400F095F0 /* UserInfoSection.swift */; };
 		FAFF76482C259A1900F095F0 /* ProfileAlbumItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF76472C259A1900F095F0 /* ProfileAlbumItemView.swift */; };
+		FAFF764B2C25E11200F095F0 /* MessagingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF764A2C25E11200F095F0 /* MessagingView.swift */; };
+		FAFF764D2C25E2BE00F095F0 /* MessagingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF764C2C25E2BE00F095F0 /* MessagingViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -448,6 +450,8 @@
 		FAFF763F2C2594F000F095F0 /* BadgePopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgePopupView.swift; sourceTree = "<group>"; };
 		FAFF76452C25990400F095F0 /* UserInfoSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoSection.swift; sourceTree = "<group>"; };
 		FAFF76472C259A1900F095F0 /* ProfileAlbumItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAlbumItemView.swift; sourceTree = "<group>"; };
+		FAFF764A2C25E11200F095F0 /* MessagingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagingView.swift; sourceTree = "<group>"; };
+		FAFF764C2C25E2BE00F095F0 /* MessagingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagingViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -698,6 +702,7 @@
 				FA79554F2C1DDF190068337E /* Album */,
 				FA7955502C1DDF2B0068337E /* Event */,
 				FA47E8242B04747D0013B67F /* Profile */,
+				FAFF76492C25E0FD00F095F0 /* Messaging */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -711,6 +716,7 @@
 				FA7955412C1DD1890068337E /* AlbumViewModel.swift */,
 				FA7955432C1DD19C0068337E /* EventViewModel.swift */,
 				FA7955452C1DD1AD0068337E /* ProfileViewModel.swift */,
+				FAFF764C2C25E2BE00F095F0 /* MessagingViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -935,6 +941,14 @@
 				FA924E472BAF6AE700674CA9 /* LICENSE.txt */,
 			);
 			path = Inter;
+			sourceTree = "<group>";
+		};
+		FAFF76492C25E0FD00F095F0 /* Messaging */ = {
+			isa = PBXGroup;
+			children = (
+				FAFF764A2C25E11200F095F0 /* MessagingView.swift */,
+			);
+			path = Messaging;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1266,6 +1280,7 @@
 				FA7955942C1E0D460068337E /* EventRSVPShareAttendeesSection.swift in Sources */,
 				FA1FE5AE2B4040C700AE2C00 /* AddEmailView.swift in Sources */,
 				FA79555A2C1DF3290068337E /* BadgeView.swift in Sources */,
+				FAFF764B2C25E11200F095F0 /* MessagingView.swift in Sources */,
 				FA79559A2C1E0D790068337E /* EventCommentView.swift in Sources */,
 				FADF8D0F2BA38C15004D7488 /* Map2.swift in Sources */,
 				FA45D0642C08D99D006E64E3 /* Event.swift in Sources */,
@@ -1279,6 +1294,7 @@
 				FAFF763A2C25949400F095F0 /* BadgeSection.swift in Sources */,
 				FA79555E2C1DF3F60068337E /* StatView.swift in Sources */,
 				FA7955462C1DD1AD0068337E /* ProfileViewModel.swift in Sources */,
+				FAFF764D2C25E2BE00F095F0 /* MessagingViewModel.swift in Sources */,
 				FAFF762E2C2593D600F095F0 /* BackgroundView.swift in Sources */,
 				FA7955482C1DD1D70068337E /* AuthenticationService.swift in Sources */,
 				FA79556E2C1DF9D70068337E /* ButtonContainerView.swift in Sources */,

@@ -1,6 +1,5 @@
 import SwiftUI
 
-// MARK: - Event View
 /// EventView displays the details of an event, including a photo carousel, description, and comments.
 struct EventView: View {
     @StateObject private var viewModel: EventViewModel
@@ -12,7 +11,6 @@ struct EventView: View {
         self.onDismiss = onDismiss
     }
 
-    // MARK: - Body
     var body: some View {
         ZStack {
             VStack {
@@ -54,14 +52,21 @@ struct EventView: View {
                 Spacer()
                 TabBarView(
                     onProfileSelected: {
-                        print("Navigating from Event to Profile")
                         self.presentationMode.wrappedValue.dismiss()
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                             onDismiss()
                         }
                     },
                     onContentSelected: {
-                        print("Navigating from Event to Content")
+                        self.presentationMode.wrappedValue.dismiss()
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                            onDismiss()
+                        }
+                    },
+                    onNotificationsSelected: { /* Handle notifications */ },
+                    onMessagingSelected: {
+                        // Handle messaging navigation
+                        print("Navigating from Event to Messaging")
                         self.presentationMode.wrappedValue.dismiss()
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                             onDismiss()

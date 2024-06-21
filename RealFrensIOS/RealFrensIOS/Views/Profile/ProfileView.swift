@@ -14,7 +14,7 @@ struct ProfileView: View {
                 BackgroundView()
                 
                 ScrollView(.vertical, showsIndicators: false) {
-                    VStack(spacing: 20) {
+                    VStack(spacing: 10) {
                         ProfileImageView(imageURL: viewModel.user?.profileImageURL)
                         StatView(viewModel: viewModel)
                         UserInfoSection(viewModel: viewModel)

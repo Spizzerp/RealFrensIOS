@@ -1,6 +1,5 @@
 import SwiftUI
 
-// MARK: - Album View
 /// AlbumView displays the details of a photo album, including a photo carousel, description, and comments.
 struct AlbumView: View {
     @StateObject private var viewModel: AlbumViewModel
@@ -56,14 +55,21 @@ struct AlbumView: View {
                 Spacer()
                 TabBarView(
                     onProfileSelected: {
-                        print("Navigating from Album to Profile")
                         self.presentationMode.wrappedValue.dismiss()
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                             onDismiss()
                         }
                     },
                     onContentSelected: {
-                        print("Navigating from Album to Content")
+                        self.presentationMode.wrappedValue.dismiss()
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                            onDismiss()
+                        }
+                    },
+                    onNotificationsSelected: { /* Handle notifications */ },
+                    onMessagingSelected: {
+                        // Handle messaging navigation
+                        print("Navigating from Album to Messaging")
                         self.presentationMode.wrappedValue.dismiss()
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                             onDismiss()

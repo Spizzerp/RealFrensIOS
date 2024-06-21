@@ -1,10 +1,12 @@
 import SwiftUI
 
 // MARK: - Tab Bar View
-/// TabBarView is a custom tab bar for navigating between profile, content, and notifications views.
+/// TabBarView is a custom tab bar for navigating between profile, content, notifications, and messaging views.
 struct TabBarView: View {
     var onProfileSelected: () -> Void
     var onContentSelected: () -> Void
+    var onNotificationsSelected: () -> Void
+    var onMessagingSelected: () -> Void
 
     var body: some View {
         ZStack {
@@ -50,9 +52,18 @@ struct TabBarView: View {
                     
                     Spacer()
                     
-                    Button(action: {
-                        // Action for Notifications
-                    }) {
+                    Button(action: onMessagingSelected) {
+                        Image(systemName: "message.fill")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 25, height: 25)
+                            .foregroundColor(Color(hex: 0x9F85FF))
+                            .shadow(color: Color(hex: 0x9F85FF), radius: 3)
+                    }
+                    
+                    Spacer()
+                    
+                    Button(action: onNotificationsSelected) {
                         Image(systemName: "bell.fill")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
@@ -83,6 +94,12 @@ struct TabBarView_Previews: PreviewProvider {
                 },
                 onContentSelected: {
                     print("Content button tapped")
+                },
+                onNotificationsSelected: {
+                    print("Notifications button tapped")
+                },
+                onMessagingSelected: {
+                    print("Messaging button tapped")
                 }
             )
         }

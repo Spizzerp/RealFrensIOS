@@ -1,11 +1,10 @@
 import SwiftUI
 
-// MARK: - Parent View
-/// ParentView manages the display of content and profile views with a tab bar.
+/// ParentView manages the display of content, profile, album, event, and messaging views with a tab bar.
 struct ParentView: View {
+    /// The currently selected tab
     @State private var selectedTab: Tab = .content
 
-    // MARK: - Body
     var body: some View {
         ZStack {
             // Content based on selected tab
@@ -24,18 +23,18 @@ struct ParentView: View {
                 EventView(event: event) {
                     selectedTab = .content
                 }
+            case .messaging:
+                MessagingView() // You'll need to create this view
             }
             
             // Tab bar for navigation
             VStack {
                 Spacer()
                 TabBarView(
-                    onProfileSelected: {
-                        selectedTab = .profile
-                    },
-                    onContentSelected: {
-                        selectedTab = .content
-                    }
+                    onProfileSelected: { selectedTab = .profile },
+                    onContentSelected: { selectedTab = .content },
+                    onNotificationsSelected: { /* Handle notifications */ },
+                    onMessagingSelected: { selectedTab = .messaging }
                 )
                 .padding(.bottom, 20)
                 .background(Color.clear)
@@ -44,9 +43,9 @@ struct ParentView: View {
         }
     }
     
-    // MARK: - Tab Enum
+    /// Enum representing the different tabs in the application
     enum Tab {
-        case content, profile
+        case content, profile, messaging
         case album(Album)
         case event(Event)
     }

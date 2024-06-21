@@ -11,7 +11,7 @@ struct ProfileAlbumItemView: View {
                 .frame(width: 250, height: 150)
                 .clipShape(RoundedRectangle(cornerRadius: 10))
                 .shadow(radius: 5)
-                .padding(.vertical, 22)
+                .padding(.vertical, 10)
 
             VStack {
                 Spacer()

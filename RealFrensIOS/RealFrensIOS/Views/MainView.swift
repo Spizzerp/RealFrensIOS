@@ -1,11 +1,10 @@
 import SwiftUI
 
-// MARK: - Main View
-/// MainView manages the different tabs of the application, including content, profile, album, and event views.
+/// MainView manages the different tabs of the application, including content, profile, album, event, and messaging views.
 struct MainView: View {
+    /// The currently selected tab
     @State private var currentTab: Tab = .content
 
-    // MARK: - Body
     var body: some View {
         ZStack {
             // Content based on current tab
@@ -24,18 +23,18 @@ struct MainView: View {
                 EventView(event: event) {
                     currentTab = .content
                 }
+            case .messaging:
+                MessagingView() // You'll need to create this view
             }
 
             // Tab bar for navigation
             VStack {
                 Spacer()
                 TabBarView(
-                    onProfileSelected: {
-                        currentTab = .profile
-                    },
-                    onContentSelected: {
-                        currentTab = .content
-                    }
+                    onProfileSelected: { currentTab = .profile },
+                    onContentSelected: { currentTab = .content },
+                    onNotificationsSelected: { /* Handle notifications */ },
+                    onMessagingSelected: { currentTab = .messaging }
                 )
                 .padding(.bottom, 20)
                 .background(Color.clear)
@@ -44,9 +43,9 @@ struct MainView: View {
         }
     }
 
-    // MARK: - Tab Enum
+    /// Enum representing the different tabs in the application
     enum Tab {
-        case content, profile
+        case content, profile, messaging
         case album(Album)
         case event(Event)
     }
