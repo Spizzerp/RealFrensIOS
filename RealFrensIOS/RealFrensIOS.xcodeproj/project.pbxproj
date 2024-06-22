@@ -227,8 +227,10 @@
 		FAFF76402C2594F000F095F0 /* BadgePopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF763F2C2594F000F095F0 /* BadgePopupView.swift */; };
 		FAFF76462C25990400F095F0 /* UserInfoSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF76452C25990400F095F0 /* UserInfoSection.swift */; };
 		FAFF76482C259A1900F095F0 /* ProfileAlbumItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF76472C259A1900F095F0 /* ProfileAlbumItemView.swift */; };
-		FAFF764B2C25E11200F095F0 /* MessagingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF764A2C25E11200F095F0 /* MessagingView.swift */; };
-		FAFF764D2C25E2BE00F095F0 /* MessagingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF764C2C25E2BE00F095F0 /* MessagingViewModel.swift */; };
+		FAFF764F2C26DFBC00F095F0 /* Conversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF764E2C26DFBC00F095F0 /* Conversation.swift */; };
+		FAFF76512C26DFE000F095F0 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF76502C26DFE000F095F0 /* Message.swift */; };
+		FAFF76532C26E01200F095F0 /* MessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF76522C26E01200F095F0 /* MessageViewModel.swift */; };
+		FAFF76552C26E04E00F095F0 /* MessagingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF76542C26E04E00F095F0 /* MessagingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -450,8 +452,10 @@
 		FAFF763F2C2594F000F095F0 /* BadgePopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgePopupView.swift; sourceTree = "<group>"; };
 		FAFF76452C25990400F095F0 /* UserInfoSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoSection.swift; sourceTree = "<group>"; };
 		FAFF76472C259A1900F095F0 /* ProfileAlbumItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAlbumItemView.swift; sourceTree = "<group>"; };
-		FAFF764A2C25E11200F095F0 /* MessagingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagingView.swift; sourceTree = "<group>"; };
-		FAFF764C2C25E2BE00F095F0 /* MessagingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagingViewModel.swift; sourceTree = "<group>"; };
+		FAFF764E2C26DFBC00F095F0 /* Conversation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conversation.swift; sourceTree = "<group>"; };
+		FAFF76502C26DFE000F095F0 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		FAFF76522C26E01200F095F0 /* MessageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewModel.swift; sourceTree = "<group>"; };
+		FAFF76542C26E04E00F095F0 /* MessagingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -613,6 +617,8 @@
 				FA45D05D2C08BAD3006E64E3 /* Album.swift */,
 				FA45D0612C08C22A006E64E3 /* BadgeInfo.swift */,
 				FA45D0632C08D99D006E64E3 /* Event.swift */,
+				FAFF764E2C26DFBC00F095F0 /* Conversation.swift */,
+				FAFF76502C26DFE000F095F0 /* Message.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -716,7 +722,7 @@
 				FA7955412C1DD1890068337E /* AlbumViewModel.swift */,
 				FA7955432C1DD19C0068337E /* EventViewModel.swift */,
 				FA7955452C1DD1AD0068337E /* ProfileViewModel.swift */,
-				FAFF764C2C25E2BE00F095F0 /* MessagingViewModel.swift */,
+				FAFF76522C26E01200F095F0 /* MessageViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -946,7 +952,7 @@
 		FAFF76492C25E0FD00F095F0 /* Messaging */ = {
 			isa = PBXGroup;
 			children = (
-				FAFF764A2C25E11200F095F0 /* MessagingView.swift */,
+				FAFF76542C26E04E00F095F0 /* MessagingView.swift */,
 			);
 			path = Messaging;
 			sourceTree = "<group>";
@@ -1238,6 +1244,7 @@
 				FA79554A2C1DD1EA0068337E /* FirebaseService.swift in Sources */,
 				FAFF76482C259A1900F095F0 /* ProfileAlbumItemView.swift in Sources */,
 				FAFF76402C2594F000F095F0 /* BadgePopupView.swift in Sources */,
+				FAFF76512C26DFE000F095F0 /* Message.swift in Sources */,
 				FA47E82C2B0478460013B67F /* ProfileView.swift in Sources */,
 				FA47E7F62B046D530013B67F /* ContentView.swift in Sources */,
 				FA7955862C1E05130068337E /* AlbumCommentsSection.swift in Sources */,
@@ -1269,10 +1276,13 @@
 				FA7955702C1DF9EB0068337E /* MapButtonView.swift in Sources */,
 				FA79553C2C1DD13C0068337E /* LoginViewModel.swift in Sources */,
 				FA7955842C1E04FC0068337E /* AlbumDescriptionSection.swift in Sources */,
+				FAFF76552C26E04E00F095F0 /* MessagingView.swift in Sources */,
 				FA7955922C1E0D1B0068337E /* EventDescriptionSection.swift in Sources */,
 				FAFF763C2C2594B000F095F0 /* AlbumSection.swift in Sources */,
+				FAFF76532C26E01200F095F0 /* MessageViewModel.swift in Sources */,
 				FA7955622C1DF7570068337E /* ColorExtension.swift in Sources */,
 				FA7955742C1DFA1F0068337E /* EventItemView.swift in Sources */,
+				FAFF764F2C26DFBC00F095F0 /* Conversation.swift in Sources */,
 				FA7955442C1DD19C0068337E /* EventViewModel.swift in Sources */,
 				FA79557A2C1DFAAF0068337E /* NotificationExtension.swift in Sources */,
 				FA79557C2C1DFB550068337E /* ButtonsLayerView.swift in Sources */,
@@ -1280,7 +1290,6 @@
 				FA7955942C1E0D460068337E /* EventRSVPShareAttendeesSection.swift in Sources */,
 				FA1FE5AE2B4040C700AE2C00 /* AddEmailView.swift in Sources */,
 				FA79555A2C1DF3290068337E /* BadgeView.swift in Sources */,
-				FAFF764B2C25E11200F095F0 /* MessagingView.swift in Sources */,
 				FA79559A2C1E0D790068337E /* EventCommentView.swift in Sources */,
 				FADF8D0F2BA38C15004D7488 /* Map2.swift in Sources */,
 				FA45D0642C08D99D006E64E3 /* Event.swift in Sources */,
@@ -1294,7 +1303,6 @@
 				FAFF763A2C25949400F095F0 /* BadgeSection.swift in Sources */,
 				FA79555E2C1DF3F60068337E /* StatView.swift in Sources */,
 				FA7955462C1DD1AD0068337E /* ProfileViewModel.swift in Sources */,
-				FAFF764D2C25E2BE00F095F0 /* MessagingViewModel.swift in Sources */,
 				FAFF762E2C2593D600F095F0 /* BackgroundView.swift in Sources */,
 				FA7955482C1DD1D70068337E /* AuthenticationService.swift in Sources */,
 				FA79556E2C1DF9D70068337E /* ButtonContainerView.swift in Sources */,
