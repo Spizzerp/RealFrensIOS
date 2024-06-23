@@ -2,28 +2,17 @@ import Foundation
 
 class MessageViewModel: ObservableObject {
     @Published var conversations: [Conversation] = []
-    @Published var isEditMode: Bool = false
 
     init() {
         loadConversations()
     }
 
     private func loadConversations() {
-        // TODO: Replace this with actual data loading logic
+        // Mock data
         conversations = [
-            Conversation(name: "Alice", profilePicture: "alice_profile", lastMessage: "Hey, how are you?", lastMessageTime: "2m ago"),
-            Conversation(name: "Bob", profilePicture: "bob_profile", lastMessage: "See you tomorrow!", lastMessageTime: "1h ago")
+            Conversation(name: "Alice", profilePicture: "pfp5", lastMessage: "Hey, how are you?", lastMessageTime: "2m ago", messages: []),
+            Conversation(name: "Bob", profilePicture: "pfp1", lastMessage: "See you tomorrow!", lastMessageTime: "1h ago", messages: [])
         ]
-    }
-
-    func startNewConversation() {
-        // TODO: Implement logic to start a new conversation
-        let newConversation = Conversation(name: "New Contact", profilePicture: "default_profile", lastMessage: "", lastMessageTime: "Now")
-        conversations.append(newConversation)
-    }
-
-    func toggleEditMode() {
-        isEditMode.toggle()
     }
 
     func sendMessage(_ content: String, in conversation: Conversation) {
@@ -37,6 +26,17 @@ class MessageViewModel: ObservableObject {
             let updatedConversation = conversations.remove(at: index)
             conversations.insert(updatedConversation, at: 0)
         }
+    }
+
+    func toggleMute(for conversation: Conversation) {
+        if let index = conversations.firstIndex(where: { $0.id == conversation.id }) {
+            conversations[index].isMuted.toggle()
+        }
+    }
+
+    func startNewConversation() {
+        // In a real app, this would open a new view to select a contact
+        print("Starting a new conversation")
     }
 
     func deleteConversation(at offsets: IndexSet) {

@@ -9,7 +9,7 @@ struct StatView: View {
             StatItem(count: "\(viewModel.pinsCount)", label: "Pins")
             StatItem(count: "\(viewModel.level)", label: "Level")
         }
-        .padding(.vertical, 25)
+        .padding(.vertical, 15)
     }
 }
 

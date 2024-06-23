@@ -1,123 +1,149 @@
 import SwiftUI
 
+/// The top-level view for the messaging functionality of the app.
 struct MessagingView: View {
+    // MARK: - Properties
+    
+    /// The view model that manages the messaging data and logic.
     @StateObject private var viewModel = MessageViewModel()
+    
+    /// The current search text entered by the user.
+    @State private var searchText = ""
+    
+    /// The currently selected conversation, if any.
+    @State private var selectedConversation: Conversation?
+    
+    /// A flag indicating whether the more options view is being shown.
+    @State private var showingMoreOptions = false
+    
+    /// A flag indicating whether the new conversation view is being shown.
+    @State private var showingNewConversationView = false
+    
+    /// A flag indicating whether the settings view is being shown.
+    @State private var showingSettings = false
 
+    // MARK: - Body
+    
     var body: some View {
         NavigationView {
-            List {
-                ForEach(viewModel.conversations) { conversation in
-                    NavigationLink(destination: ConversationDetailView(conversation: conversation, viewModel: viewModel)) {
-                        ConversationRowView(conversation: conversation)
-                    }
+            ZStack {
+                BackgroundGradientView()
+
+                VStack(spacing: 0) {
+                    ConversationSearchBarView(searchText: $searchText)
+                    ConversationListView(
+                        viewModel: viewModel,
+                        searchText: searchText,
+                        selectedConversation: $selectedConversation,
+                        showingMoreOptions: $showingMoreOptions
+                    )
                 }
-                .onDelete(perform: deleteConversation)
+
+                NewConversationButton(showingNewConversationView: $showingNewConversationView)
             }
-            .listStyle(PlainListStyle())
             .navigationBarTitle("Messages", displayMode: .inline)
             .navigationBarItems(
-                leading: EditButton(),
-                trailing: Button(action: {
-                    viewModel.startNewConversation()
-                }) {
-                    Image(systemName: "square.and.pencil")
-                }
+                leading: settingsButton,
+                trailing: NavigationMenuView()
             )
         }
-        .accentColor(Color(hex: "9F85FF"))
-    }
-
-    private func deleteConversation(at offsets: IndexSet) {
-        viewModel.conversations.remove(atOffsets: offsets)
-    }
-}
-
-struct ConversationRowView: View {
-    let conversation: Conversation
-
-    var body: some View {
-        HStack {
-            Image(conversation.profilePicture)
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(width: 50, height: 50)
-                .clipShape(Circle())
-
-            VStack(alignment: .leading) {
-                Text(conversation.name)
-                    .font(.headline)
-                Text(conversation.lastMessage)
-                    .font(.subheadline)
-                    .foregroundColor(.gray)
+        .sheet(isPresented: $showingMoreOptions) {
+            if let conversation = selectedConversation {
+                MoreOptionsView(conversation: conversation)
             }
-
-            Spacer()
-
-            Text(conversation.lastMessageTime)
-                .font(.caption)
-                .foregroundColor(.gray)
         }
-        .padding(.vertical, 8)
+        .sheet(isPresented: $showingNewConversationView) {
+            NewConversationView()
+        }
+        .sheet(isPresented: $showingSettings) {
+            SettingsView()
+        }
+    }
+    
+    // MARK: - Subviews
+    
+    /// The button that opens the settings view.
+    private var settingsButton: some View {
+        Button(action: {
+            showingSettings = true
+        }) {
+            Image(systemName: "gear")
+                .foregroundColor(.white)
+        }
     }
 }
 
-struct ConversationDetailView: View {
-    let conversation: Conversation
-    @ObservedObject var viewModel: MessageViewModel
-    @State private var newMessageText = ""
+/// A view for the navigation menu.
+struct NavigationMenuView: View {
+    var body: some View {
+        Menu {
+            Button(action: {
+                // Action for Archived chats
+            }) {
+                Label("Archived chats", systemImage: "archivebox")
+            }
+            Button(action: {
+                // Action for New group
+            }) {
+                Label("New group", systemImage: "person.3")
+            }
+        } label: {
+            Image(systemName: "ellipsis")
+                .rotationEffect(.degrees(90))
+                .foregroundColor(.white)
+        }
+    }
+}
+
+/// A placeholder view for the settings screen.
+struct SettingsView: View {
+    var body: some View {
+        Text("Settings")
+            .navigationBarTitle("Settings", displayMode: .inline)
+    }
+}
+
+/// A view that displays a gradient background.
+struct BackgroundGradientView: View {
+    var body: some View {
+        LinearGradient(
+            gradient: Gradient(colors: [Color(red: 0.18, green: 0.18, blue: 0.18), Color(red: 0.09, green: 0.09, blue: 0.09)]),
+            startPoint: .top,
+            endPoint: .bottom
+        )
+        .edgesIgnoringSafeArea(.all)
+    }
+}
+
+/// A button for creating a new conversation.
+struct NewConversationButton: View {
+    @Binding var showingNewConversationView: Bool
 
     var body: some View {
         VStack {
-            ScrollView {
-                ForEach(conversation.messages) { message in
-                    MessageBubble(message: message)
-                }
-            }
-
+            Spacer()
             HStack {
-                TextField("Type a message...", text: $newMessageText)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-
-                Button(action: sendMessage) {
-                    Image(systemName: "paperplane.fill")
-                        .foregroundColor(Color(hex: "9F85FF"))
+                Spacer()
+                Button(action: {
+                    showingNewConversationView = true
+                }) {
+                    Image(systemName: "plus")
+                        .foregroundColor(Color(hex: "181818"))
+                        .font(.system(size: 24))
+                        .frame(width: 60, height: 60)
+                        .background(Color(hex: "9F85FF"))
+                        .clipShape(Circle())
+                        .shadow(radius: 5)
                 }
+                .padding(.trailing, 20)
+                .padding(.bottom, 60)
             }
-            .padding()
         }
-        .navigationBarTitle(conversation.name, displayMode: .inline)
-        .background(Color(hex: "181818").edgesIgnoringSafeArea(.all))
-    }
-
-    private func sendMessage() {
-        guard !newMessageText.isEmpty else { return }
-        viewModel.sendMessage(newMessageText, in: conversation)
-        newMessageText = ""
     }
 }
 
-struct MessageBubble: View {
-    let message: Message
+// MARK: - Preview
 
-    var body: some View {
-        HStack {
-            if message.isFromCurrentUser {
-                Spacer()
-            }
-            Text(message.content)
-                .padding()
-                .background(message.isFromCurrentUser ? Color(hex: "9F85FF") : Color.gray)
-                .foregroundColor(.white)
-                .cornerRadius(15)
-            if !message.isFromCurrentUser {
-                Spacer()
-            }
-        }
-        .padding(.horizontal)
-    }
-}
-
-// MARK: - Preview Provider
 struct MessagingView_Previews: PreviewProvider {
     static var previews: some View {
         MessagingView()
