@@ -100,6 +100,13 @@
 		FA892C272B0C7BC1006B24B8 /* FirebaseRemoteConfigSwift in Frameworks */ = {isa = PBXBuildFile; productRef = FA892C262B0C7BC1006B24B8 /* FirebaseRemoteConfigSwift */; };
 		FA892C292B0C7BC1006B24B8 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = FA892C282B0C7BC1006B24B8 /* FirebaseStorage */; };
 		FA892C2B2B0C7D09006B24B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA892C2A2B0C7D09006B24B8 /* AppDelegate.swift */; };
+		FA8E15CD2C2C4F3100B1FF65 /* ConversationSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8E15CC2C2C4F3100B1FF65 /* ConversationSummaryView.swift */; };
+		FA8E15CF2C2C4FB800B1FF65 /* ConversationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8E15CE2C2C4FB800B1FF65 /* ConversationDetailView.swift */; };
+		FA8E15D12C2C4FD700B1FF65 /* ConversationListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8E15D02C2C4FD700B1FF65 /* ConversationListView.swift */; };
+		FA8E15D32C2C4FF800B1FF65 /* MessageBubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8E15D22C2C4FF800B1FF65 /* MessageBubble.swift */; };
+		FA8E15D52C2C501400B1FF65 /* MoreOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8E15D42C2C501400B1FF65 /* MoreOptionsView.swift */; };
+		FA8E15D72C2C503900B1FF65 /* NewConversationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8E15D62C2C503900B1FF65 /* NewConversationView.swift */; };
+		FA8E15D92C2C505800B1FF65 /* ConversationSearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8E15D82C2C505800B1FF65 /* ConversationSearchBarView.swift */; };
 		FA924E492BAF6AE700674CA9 /* Inter-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = FA924DCF2BAF6AE700674CA9 /* Inter-Black.otf */; };
 		FA924E4A2BAF6AE700674CA9 /* Inter-BlackItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = FA924DD02BAF6AE700674CA9 /* Inter-BlackItalic.otf */; };
 		FA924E4B2BAF6AE700674CA9 /* Inter-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = FA924DD12BAF6AE700674CA9 /* Inter-Bold.otf */; };
@@ -231,13 +238,6 @@
 		FAFF76512C26DFE000F095F0 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF76502C26DFE000F095F0 /* Message.swift */; };
 		FAFF76532C26E01200F095F0 /* MessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF76522C26E01200F095F0 /* MessageViewModel.swift */; };
 		FAFF76552C26E04E00F095F0 /* MessagingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF76542C26E04E00F095F0 /* MessagingView.swift */; };
-		FAFF765B2C289DC800F095F0 /* ConversationSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF765A2C289DC800F095F0 /* ConversationSummaryView.swift */; };
-		FAFF765D2C289DF300F095F0 /* ConversationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF765C2C289DF300F095F0 /* ConversationDetailView.swift */; };
-		FAFF765F2C289E1100F095F0 /* ConversationListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF765E2C289E1100F095F0 /* ConversationListView.swift */; };
-		FAFF76612C289E4700F095F0 /* MessageBubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF76602C289E4700F095F0 /* MessageBubble.swift */; };
-		FAFF76632C289E5D00F095F0 /* MoreOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF76622C289E5D00F095F0 /* MoreOptionsView.swift */; };
-		FAFF76652C289E7800F095F0 /* NewConversationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF76642C289E7800F095F0 /* NewConversationView.swift */; };
-		FAFF76672C28A1CA00F095F0 /* ConversationSearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF76662C28A1CA00F095F0 /* ConversationSearchBarView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -332,6 +332,13 @@
 		FA79559C2C1E47640068337E /* Switzer-Variable.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Switzer-Variable.ttf"; sourceTree = "<group>"; };
 		FA892BFB2B0C78F8006B24B8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FA892C2A2B0C7D09006B24B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FA8E15CC2C2C4F3100B1FF65 /* ConversationSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationSummaryView.swift; sourceTree = "<group>"; };
+		FA8E15CE2C2C4FB800B1FF65 /* ConversationDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationDetailView.swift; sourceTree = "<group>"; };
+		FA8E15D02C2C4FD700B1FF65 /* ConversationListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationListView.swift; sourceTree = "<group>"; };
+		FA8E15D22C2C4FF800B1FF65 /* MessageBubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageBubble.swift; sourceTree = "<group>"; };
+		FA8E15D42C2C501400B1FF65 /* MoreOptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreOptionsView.swift; sourceTree = "<group>"; };
+		FA8E15D62C2C503900B1FF65 /* NewConversationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewConversationView.swift; sourceTree = "<group>"; };
+		FA8E15D82C2C505800B1FF65 /* ConversationSearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationSearchBarView.swift; sourceTree = "<group>"; };
 		FA924DCF2BAF6AE700674CA9 /* Inter-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Black.otf"; sourceTree = "<group>"; };
 		FA924DD02BAF6AE700674CA9 /* Inter-BlackItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-BlackItalic.otf"; sourceTree = "<group>"; };
 		FA924DD12BAF6AE700674CA9 /* Inter-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Bold.otf"; sourceTree = "<group>"; };
@@ -463,13 +470,6 @@
 		FAFF76502C26DFE000F095F0 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		FAFF76522C26E01200F095F0 /* MessageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewModel.swift; sourceTree = "<group>"; };
 		FAFF76542C26E04E00F095F0 /* MessagingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagingView.swift; sourceTree = "<group>"; };
-		FAFF765A2C289DC800F095F0 /* ConversationSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationSummaryView.swift; sourceTree = "<group>"; };
-		FAFF765C2C289DF300F095F0 /* ConversationDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationDetailView.swift; sourceTree = "<group>"; };
-		FAFF765E2C289E1100F095F0 /* ConversationListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationListView.swift; sourceTree = "<group>"; };
-		FAFF76602C289E4700F095F0 /* MessageBubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageBubble.swift; sourceTree = "<group>"; };
-		FAFF76622C289E5D00F095F0 /* MoreOptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreOptionsView.swift; sourceTree = "<group>"; };
-		FAFF76642C289E7800F095F0 /* NewConversationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewConversationView.swift; sourceTree = "<group>"; };
-		FAFF76662C28A1CA00F095F0 /* ConversationSearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationSearchBarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -967,13 +967,13 @@
 			isa = PBXGroup;
 			children = (
 				FAFF76542C26E04E00F095F0 /* MessagingView.swift */,
-				FAFF765A2C289DC800F095F0 /* ConversationSummaryView.swift */,
-				FAFF765C2C289DF300F095F0 /* ConversationDetailView.swift */,
-				FAFF765E2C289E1100F095F0 /* ConversationListView.swift */,
-				FAFF76602C289E4700F095F0 /* MessageBubble.swift */,
-				FAFF76622C289E5D00F095F0 /* MoreOptionsView.swift */,
-				FAFF76642C289E7800F095F0 /* NewConversationView.swift */,
-				FAFF76662C28A1CA00F095F0 /* ConversationSearchBarView.swift */,
+				FA8E15CC2C2C4F3100B1FF65 /* ConversationSummaryView.swift */,
+				FA8E15CE2C2C4FB800B1FF65 /* ConversationDetailView.swift */,
+				FA8E15D02C2C4FD700B1FF65 /* ConversationListView.swift */,
+				FA8E15D22C2C4FF800B1FF65 /* MessageBubble.swift */,
+				FA8E15D42C2C501400B1FF65 /* MoreOptionsView.swift */,
+				FA8E15D62C2C503900B1FF65 /* NewConversationView.swift */,
+				FA8E15D82C2C505800B1FF65 /* ConversationSearchBarView.swift */,
 			);
 			path = Messaging;
 			sourceTree = "<group>";
@@ -1257,16 +1257,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA79558C2C1E0CD80068337E /* EventTitleSection.swift in Sources */,
-				FAFF76612C289E4700F095F0 /* MessageBubble.swift in Sources */,
+				FA8E15D32C2C4FF800B1FF65 /* MessageBubble.swift in Sources */,
 				FA1FE5B12B40482500AE2C00 /* RFTextFieldModifier.swift in Sources */,
-				FAFF765F2C289E1100F095F0 /* ConversationListView.swift in Sources */,
+				FA8E15D12C2C4FD700B1FF65 /* ConversationListView.swift in Sources */,
 				FA1FE5B32B404D2B00AE2C00 /* CreateUserNameView.swift in Sources */,
 				FA79556A2C1DF9AE0068337E /* SearchButtonView.swift in Sources */,
 				FA79558A2C1E05AE0068337E /* AlbumCommentView.swift in Sources */,
 				FA79555C2C1DF3960068337E /* CustomGradientBackground.swift in Sources */,
 				FA79554A2C1DD1EA0068337E /* FirebaseService.swift in Sources */,
 				FAFF76482C259A1900F095F0 /* ProfileAlbumItemView.swift in Sources */,
-				FAFF76672C28A1CA00F095F0 /* ConversationSearchBarView.swift in Sources */,
+				FA8E15D92C2C505800B1FF65 /* ConversationSearchBarView.swift in Sources */,
 				FAFF76402C2594F000F095F0 /* BadgePopupView.swift in Sources */,
 				FAFF76512C26DFE000F095F0 /* Message.swift in Sources */,
 				FA47E82C2B0478460013B67F /* ProfileView.swift in Sources */,
@@ -1279,7 +1279,7 @@
 				FA7955982C1E0D660068337E /* EventAddCommentSection.swift in Sources */,
 				FA1FE5C12B42B39400AE2C00 /* ParentView.swift in Sources */,
 				FA79554C2C1DD1F90068337E /* MapboxService.swift in Sources */,
-				FAFF765B2C289DC800F095F0 /* ConversationSummaryView.swift in Sources */,
+				FA8E15CD2C2C4F3100B1FF65 /* ConversationSummaryView.swift in Sources */,
 				FA7955402C1DD16F0068337E /* ContentViewModel.swift in Sources */,
 				FA47E8A42B0889C60013B67F /* MapMarker.swift in Sources */,
 				FAFF76382C25947B00F095F0 /* CustomDivider.swift in Sources */,
@@ -1307,7 +1307,7 @@
 				FAFF76532C26E01200F095F0 /* MessageViewModel.swift in Sources */,
 				FA7955622C1DF7570068337E /* ColorExtension.swift in Sources */,
 				FA7955742C1DFA1F0068337E /* EventItemView.swift in Sources */,
-				FAFF765D2C289DF300F095F0 /* ConversationDetailView.swift in Sources */,
+				FA8E15CF2C2C4FB800B1FF65 /* ConversationDetailView.swift in Sources */,
 				FAFF764F2C26DFBC00F095F0 /* Conversation.swift in Sources */,
 				FA7955442C1DD19C0068337E /* EventViewModel.swift in Sources */,
 				FA79557A2C1DFAAF0068337E /* NotificationExtension.swift in Sources */,
@@ -1329,13 +1329,13 @@
 				FAFF763A2C25949400F095F0 /* BadgeSection.swift in Sources */,
 				FA79555E2C1DF3F60068337E /* StatView.swift in Sources */,
 				FA7955462C1DD1AD0068337E /* ProfileViewModel.swift in Sources */,
-				FAFF76652C289E7800F095F0 /* NewConversationView.swift in Sources */,
+				FA8E15D72C2C503900B1FF65 /* NewConversationView.swift in Sources */,
 				FAFF762E2C2593D600F095F0 /* BackgroundView.swift in Sources */,
 				FA7955482C1DD1D70068337E /* AuthenticationService.swift in Sources */,
 				FA79556E2C1DF9D70068337E /* ButtonContainerView.swift in Sources */,
 				FA1FE5B52B4053F100AE2C00 /* CreatePassView.swift in Sources */,
 				FA7955422C1DD1890068337E /* AlbumViewModel.swift in Sources */,
-				FAFF76632C289E5D00F095F0 /* MoreOptionsView.swift in Sources */,
+				FA8E15D52C2C501400B1FF65 /* MoreOptionsView.swift in Sources */,
 				FA45D05E2C08BAD3006E64E3 /* Album.swift in Sources */,
 				FA7955652C1DF9640068337E /* MapWrapperView.swift in Sources */,
 				FACB85422BD5BB4700C9F5E0 /* AlbumView.swift in Sources */,

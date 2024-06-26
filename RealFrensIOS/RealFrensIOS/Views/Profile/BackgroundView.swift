@@ -4,11 +4,13 @@ import SwiftUI
 struct BackgroundView: View {
     var body: some View {
         ZStack {
-            // Background gradient
-            LinearGradient(
-                gradient: Gradient(colors: [Color(red: 0.18, green: 0.18, blue: 0.18), Color(red: 0.09, green: 0.09, blue: 0.09)]),
-                startPoint: .top, endPoint: .bottom
-            ).edgesIgnoringSafeArea(.all)
+            Color.black.edgesIgnoringSafeArea(.all)
+            LinearGradient(gradient: Gradient(colors: [Color.gray, Color.clear]), startPoint: .bottom, endPoint: .center)
+                .edgesIgnoringSafeArea(.all)
+                .opacity(0.5)
+            LinearGradient(gradient: Gradient(colors: [Color.white, Color.clear]), startPoint: .top, endPoint: .center)
+                .edgesIgnoringSafeArea(.all)
+                .opacity(0.5)
         }
     }
 }

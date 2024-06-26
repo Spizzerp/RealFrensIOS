@@ -28,7 +28,7 @@ struct ProfileAlbumItemView: View {
                 .padding(.bottom, 10)
             }
             .background(
-                RoundedCorners(color: Color(hex: "121212"), tl: 0, tr: 0, bl: 10, br: 10)
+                RoundedCorners(color: Color(hex: "181818"), tl: 0, tr: 0, bl: 10, br: 10)
             )
         }
     }
