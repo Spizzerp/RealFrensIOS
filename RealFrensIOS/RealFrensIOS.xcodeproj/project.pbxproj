@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		FA027C292B1D746700CB0E37 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA027C282B1D746700CB0E37 /* LoginView.swift */; };
+		FA1ADBD92C3172CD00DB7B7C /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1ADBD82C3172CD00DB7B7C /* Settings.swift */; };
+		FA1ADBDB2C31730E00DB7B7C /* NavigationMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1ADBDA2C31730E00DB7B7C /* NavigationMenu.swift */; };
+		FA1ADBDD2C31737600DB7B7C /* NewConversationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1ADBDC2C31737600DB7B7C /* NewConversationButton.swift */; };
+		FA1ADBDF2C3174D400DB7B7C /* BackgroundGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1ADBDE2C3174D400DB7B7C /* BackgroundGradientView.swift */; };
+		FA1ADBE12C31AE8300DB7B7C /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1ADBE02C31AE8300DB7B7C /* FilterView.swift */; };
 		FA1FE5AE2B4040C700AE2C00 /* AddEmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1FE5AD2B4040C700AE2C00 /* AddEmailView.swift */; };
 		FA1FE5B12B40482500AE2C00 /* RFTextFieldModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1FE5B02B40482500AE2C00 /* RFTextFieldModifier.swift */; };
 		FA1FE5B32B404D2B00AE2C00 /* CreateUserNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1FE5B22B404D2B00AE2C00 /* CreateUserNameView.swift */; };
@@ -259,6 +264,11 @@
 
 /* Begin PBXFileReference section */
 		FA027C282B1D746700CB0E37 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		FA1ADBD82C3172CD00DB7B7C /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		FA1ADBDA2C31730E00DB7B7C /* NavigationMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationMenu.swift; sourceTree = "<group>"; };
+		FA1ADBDC2C31737600DB7B7C /* NewConversationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewConversationButton.swift; sourceTree = "<group>"; };
+		FA1ADBDE2C3174D400DB7B7C /* BackgroundGradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundGradientView.swift; sourceTree = "<group>"; };
+		FA1ADBE02C31AE8300DB7B7C /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
 		FA1FE5AD2B4040C700AE2C00 /* AddEmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEmailView.swift; sourceTree = "<group>"; };
 		FA1FE5B02B40482500AE2C00 /* RFTextFieldModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RFTextFieldModifier.swift; sourceTree = "<group>"; };
 		FA1FE5B22B404D2B00AE2C00 /* CreateUserNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserNameView.swift; sourceTree = "<group>"; };
@@ -529,7 +539,6 @@
 				FA79554D2C1DDB730068337E /* CustomFontModifier.swift */,
 				FA7955552C1DE37F0068337E /* RoundedCorners.swift */,
 				FA79555B2C1DF3950068337E /* CustomGradientBackground.swift */,
-				FA7955612C1DF7570068337E /* ColorExtension.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -619,6 +628,7 @@
 		FA47E8202B04734C0013B67F /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				FA7955612C1DF7570068337E /* ColorExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -967,6 +977,7 @@
 			isa = PBXGroup;
 			children = (
 				FAFF76542C26E04E00F095F0 /* MessagingView.swift */,
+				FA1ADBDE2C3174D400DB7B7C /* BackgroundGradientView.swift */,
 				FA8E15CC2C2C4F3100B1FF65 /* ConversationSummaryView.swift */,
 				FA8E15CE2C2C4FB800B1FF65 /* ConversationDetailView.swift */,
 				FA8E15D02C2C4FD700B1FF65 /* ConversationListView.swift */,
@@ -974,6 +985,10 @@
 				FA8E15D42C2C501400B1FF65 /* MoreOptionsView.swift */,
 				FA8E15D62C2C503900B1FF65 /* NewConversationView.swift */,
 				FA8E15D82C2C505800B1FF65 /* ConversationSearchBarView.swift */,
+				FA1ADBD82C3172CD00DB7B7C /* Settings.swift */,
+				FA1ADBDA2C31730E00DB7B7C /* NavigationMenu.swift */,
+				FA1ADBDC2C31737600DB7B7C /* NewConversationButton.swift */,
+				FA1ADBE02C31AE8300DB7B7C /* FilterView.swift */,
 			);
 			path = Messaging;
 			sourceTree = "<group>";
@@ -1260,6 +1275,7 @@
 				FA8E15D32C2C4FF800B1FF65 /* MessageBubble.swift in Sources */,
 				FA1FE5B12B40482500AE2C00 /* RFTextFieldModifier.swift in Sources */,
 				FA8E15D12C2C4FD700B1FF65 /* ConversationListView.swift in Sources */,
+				FA1ADBD92C3172CD00DB7B7C /* Settings.swift in Sources */,
 				FA1FE5B32B404D2B00AE2C00 /* CreateUserNameView.swift in Sources */,
 				FA79556A2C1DF9AE0068337E /* SearchButtonView.swift in Sources */,
 				FA79558A2C1E05AE0068337E /* AlbumCommentView.swift in Sources */,
@@ -1280,6 +1296,7 @@
 				FA1FE5C12B42B39400AE2C00 /* ParentView.swift in Sources */,
 				FA79554C2C1DD1F90068337E /* MapboxService.swift in Sources */,
 				FA8E15CD2C2C4F3100B1FF65 /* ConversationSummaryView.swift in Sources */,
+				FA1ADBDB2C31730E00DB7B7C /* NavigationMenu.swift in Sources */,
 				FA7955402C1DD16F0068337E /* ContentViewModel.swift in Sources */,
 				FA47E8A42B0889C60013B67F /* MapMarker.swift in Sources */,
 				FAFF76382C25947B00F095F0 /* CustomDivider.swift in Sources */,
@@ -1304,6 +1321,7 @@
 				FAFF76552C26E04E00F095F0 /* MessagingView.swift in Sources */,
 				FA7955922C1E0D1B0068337E /* EventDescriptionSection.swift in Sources */,
 				FAFF763C2C2594B000F095F0 /* AlbumSection.swift in Sources */,
+				FA1ADBDF2C3174D400DB7B7C /* BackgroundGradientView.swift in Sources */,
 				FAFF76532C26E01200F095F0 /* MessageViewModel.swift in Sources */,
 				FA7955622C1DF7570068337E /* ColorExtension.swift in Sources */,
 				FA7955742C1DFA1F0068337E /* EventItemView.swift in Sources */,
@@ -1311,12 +1329,14 @@
 				FAFF764F2C26DFBC00F095F0 /* Conversation.swift in Sources */,
 				FA7955442C1DD19C0068337E /* EventViewModel.swift in Sources */,
 				FA79557A2C1DFAAF0068337E /* NotificationExtension.swift in Sources */,
+				FA1ADBE12C31AE8300DB7B7C /* FilterView.swift in Sources */,
 				FA79557C2C1DFB550068337E /* ButtonsLayerView.swift in Sources */,
 				FA1FE5BF2B42AE8200AE2C00 /* MainView.swift in Sources */,
 				FA7955942C1E0D460068337E /* EventRSVPShareAttendeesSection.swift in Sources */,
 				FA1FE5AE2B4040C700AE2C00 /* AddEmailView.swift in Sources */,
 				FA79555A2C1DF3290068337E /* BadgeView.swift in Sources */,
 				FA79559A2C1E0D790068337E /* EventCommentView.swift in Sources */,
+				FA1ADBDD2C31737600DB7B7C /* NewConversationButton.swift in Sources */,
 				FADF8D0F2BA38C15004D7488 /* Map2.swift in Sources */,
 				FA45D0642C08D99D006E64E3 /* Event.swift in Sources */,
 				FA7955582C1DF30B0068337E /* ProfileImageView.swift in Sources */,

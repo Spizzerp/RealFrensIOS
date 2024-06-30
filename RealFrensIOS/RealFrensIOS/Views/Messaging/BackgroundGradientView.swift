@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct BackgroundView: View {
+struct BackgroundGradientView: View {
     var body: some View {
         LinearGradient(
             // Dark gradient for a sleek, modern look

@@ -43,7 +43,7 @@ private struct TipButton: View {
             }
             .padding(.vertical, 5)
             .padding(.horizontal, 10)
-            .background(Color(hex: "9F85FF"))
+            .background(Color(hex: "631EE3"))
             .cornerRadius(6)
         }
     }

@@ -7,32 +7,39 @@ struct NewConversationView: View {
     /// The current search text entered by the user.
     @State private var searchText = ""
     
-    /// The presentation mode used to dismiss the view.
+    /// Environment object to access the presentation mode
     @Environment(\.presentationMode) var presentationMode
 
     // MARK: - Body
     
     var body: some View {
-        NavigationView {
-            ZStack {
-                BackgroundGradientView()
+        ZStack {
+            BackgroundGradientView()
 
-                VStack {
-                    SearchBarView(searchText: $searchText)
+            VStack {
+                SearchBarView(searchText: $searchText)
 
-                    // List of users will go here
-                    List {
-                        // Placeholder for user list
-                        Text("User list will appear here")
-                    }
-                    .listStyle(PlainListStyle())
+                // List of users will go here
+                List {
+                    // Placeholder for user list
+                    Text("User list will appear here")
                 }
+                .listStyle(PlainListStyle())
             }
-            .navigationBarTitle("Start a Convo", displayMode: .inline)
-            .navigationBarItems(trailing: Button("Cancel") {
-                presentationMode.wrappedValue.dismiss()
-            })
         }
+        .navigationBarTitle("Start a Convo", displayMode: .inline)
+        .navigationBarItems(trailing: Button("Cancel") {
+            presentationMode.wrappedValue.dismiss()
+        })
         .accentColor(Color(hex: "9F85FF"))
+    }
+}
+
+// MARK: - Preview
+struct NewConversationView_Previews: PreviewProvider {
+    static var previews: some View {
+        NavigationView {
+            NewConversationView()
+        }
     }
 }
